@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#219653</color>
+    <color name="colorLight">#219653</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="textlight">#7f7f7f</color>
+    <color name="separador">#b9c5c5c5</color>
+    <color name="menu_buttons">#212121</color>
+    <color name="text_light">#8a000000</color>
+    <color name="text_bold">#4b4b4b</color>
+    <color name="text_color">#de000000</color>
+    <color name="remark_color">#deed0f0f</color>
+</resources>

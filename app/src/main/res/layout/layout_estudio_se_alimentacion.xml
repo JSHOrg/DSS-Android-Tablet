@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif"
+                android:gravity="start"
+                android:text="Alimentación (En los últimos meses por falta de dinero u otros recursos)" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:lineSpacingExtra="5sp"
+                    android:lines="2"
+                    android:text="¿Alguna vez usted o algún adulto en su hogar tuvo una alimentación basada en poca variedad de alimentos?"
+                    android:textColor="#de000000"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
+
+                <Switch
+                    android:id="@+id/sw_resp_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp"
+                    android:layout_weight="3"
+                    android:gravity="end"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="5sp"
+                android:lines="2"
+                android:text="¿Alguna vez usted o algún adulto en su hogar comió menos de lo que piensa debería comer?"
+                android:textColor="#de000000"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+
+            <Switch
+                android:id="@+id/sw_resp_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="60dp"
+                android:layout_weight="3"
+                android:gravity="end"
+                android:textOff="No"
+                android:textOn="Si" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="5sp"
+                android:lines="2"
+                android:text="¿Alguna vez usted o algún adulto en su hogar dejó de desayunar, comer o cenar?"
+                android:textColor="#de000000"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+
+            <Switch
+                android:id="@+id/sw_resp_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="60dp"
+                android:layout_weight="3"
+                android:gravity="end"
+                android:textOff="No"
+                android:textOn="Si" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="5sp"
+                android:lines="2"
+                android:text="¿Alguna vez se quedaron sin comida?"
+                android:textColor="#de000000"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+
+            <Switch
+                android:id="@+id/sw_resp_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="60dp"
+                android:layout_weight="3"
+                android:gravity="end"
+                android:textOff="No"
+                android:textOn="Si" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="5sp"
+                android:lines="2"
+                android:text="¿Alguna vez usted o algún adulto en su hogar sintió hambre pero no comió?"
+                android:textColor="#de000000"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+
+            <Switch
+                android:id="@+id/sw_resp_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="60dp"
+                android:layout_weight="3"
+                android:gravity="end"
+                android:textOff="No"
+                android:textOn="Si" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="5sp"
+                android:lines="2"
+                android:text="¿Alguna vez usted o algún adulto en su hogar sólo comió una vez al día o dejó de comer durante un día?"
+                android:textColor="#de000000"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+
+            <Switch
+                android:id="@+id/sw_resp_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="60dp"
+                android:layout_weight="3"
+                android:gravity="end"
+                android:textOff="No"
+                android:textOn="Si" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="28dp"
+        android:orientation="vertical">
+
+            <TextView
+                style="@style/TextBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif"
+                android:gravity="start"
+                android:text="Si en el hogar no hay personas menores de 18 años pase a la sección 8. Resultados" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:lineSpacingExtra="5sp"
+                    android:lines="2"
+                    android:text="¿Alguna vez  algún menor de 18 años en su hogar tuvo una alimentación basada en poca variedad?"
+                    android:textColor="#de000000"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
+
+                <Switch
+                    android:id="@+id/sw_resp_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp"
+                    android:layout_weight="3"
+                    android:gravity="end"
+                    android:textOff="No"
+                    android:textOn="Si" />
+
+            </LinearLayout>
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:lineSpacingExtra="5sp"
+                    android:lines="2"
+                    android:text="¿Alguna vez algún menor de 18 años en su hogar comió menos de lo que piensa debería comer?"
+                    android:textColor="#de000000"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
+
+                <Switch
+                    android:id="@+id/sw_resp_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp"
+                    android:layout_weight="3"
+                    android:gravity="end"
+                    android:textOff="No"
+                    android:textOn="Si" />
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:lineSpacingExtra="5sp"
+                    android:lines="2"
+                    android:text="¿Alguna vez algún menor de 18 años en su hogar dejó de desayunar, comer o cenar?"
+                    android:textColor="#de000000"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
+
+                <Switch
+                    android:id="@+id/sw_resp_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp"
+                    android:layout_weight="3"
+                    android:gravity="end"
+                    android:textOff="No"
+                    android:textOn="Si" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:lineSpacingExtra="5sp"
+                    android:lines="2"
+                    android:text="¿Alguna vez en su hogar tuvieron que disminuir la cantidad servida en la comida a algún menor de 18 años?"
+                    android:textColor="#de000000"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
+
+                <Switch
+                    android:id="@+id/sw_resp_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp"
+                    android:layout_weight="3"
+                    android:gravity="end"
+                    android:textOff="No"
+                    android:textOn="Si" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:lineSpacingExtra="5sp"
+                    android:lines="2"
+                    android:text="¿Alguna vez algún menor de 18 años en su hogar sintió hambre pero no comió?"
+                    android:textColor="#de000000"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
+
+                <Switch
+                    android:id="@+id/sw_resp_11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp"
+                    android:layout_weight="3"
+                    android:gravity="end"
+                    android:textOff="No"
+                    android:textOn="Si" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:lineSpacingExtra="5sp"
+                    android:lines="2"
+                    android:text="¿Alguna vez un menor de 18 años se durmió con hambre?"
+                    android:textColor="#de000000"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
+
+                <Switch
+                    android:id="@+id/sw_resp_12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp"
+                    android:layout_weight="3"
+                    android:gravity="end"
+                    android:textOff="No"
+                    android:textOn="Si" />
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="5sp"
+                android:lines="2"
+                android:text="¿Alguna vez algún menor de 18 años en su hogar sólo comió una vez al día o dejó de comer durante un día?"
+                android:textColor="#de000000"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+
+            <Switch
+                android:id="@+id/sw_resp_13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="60dp"
+                android:layout_weight="3"
+                android:gravity="end"
+                android:textOff="No"
+                android:textOn="Si" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <TextView
+            style="@style/TextBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="49dp"
+            android:fontFamily="sans-serif"
+            android:gravity="start"
+            android:text="Si en el hogar no hay personas menores de 18 años pase a la sección 8. Resultados" />
+
+        <TextView
+            style="@style/TextBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="sans-serif"
+            android:gravity="start"
+            android:text="Estatus" />
+
+        <RadioGroup
+            android:id="@+id/rg_Estatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_estatus_rechazado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:gravity="left|center"
+                android:text="Rechazado " />
+
+            <RadioButton
+                android:id="@+id/rb_estatus_espera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="En espera" />
+
+            <RadioButton
+                android:id="@+id/rb_estatus_aprobado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Aprobado " />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </RadioGroup>
+
+        <TextView
+            style="@style/TextBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="sans-serif"
+            android:gravity="start"
+            android:text="Tipo" />
+
+        <RadioGroup
+            android:id="@+id/rg_tipo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_tipo_couta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Cuota " />
+
+            <RadioButton
+                android:id="@+id/rb_tipo_beca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Beca" />
+
+            <RadioButton
+                android:id="@+id/rb_tipo_media_beca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Media beca" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </RadioGroup>
+
+        <TextView
+            style="@style/TextBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="sans-serif"
+            android:gravity="start"
+            android:text="Frecuencia" />
+
+        <RadioGroup
+            android:id="@+id/rg_frecuencia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_frecuencia_semanal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Semanal " />
+
+            <RadioButton
+                android:id="@+id/rb_frecuencia_quincenal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Quincenal" />
+
+            <RadioButton
+                android:id="@+id/rb_frecuencia_mensual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mensual " />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="38dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tv_meses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:theme="@style/MyEditText"
+                    android:textAlignment="center"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:inputType="number"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:gravity="bottom"
+                android:text="Meses "
+                android:textSize="@dimen/text_sub_title" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

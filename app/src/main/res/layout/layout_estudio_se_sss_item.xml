@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ly_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="#f0f0f0"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:windowSharedElementsUseOverlay="false">
+
+        <TextView
+            android:id="@+id/tv_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="54dp"
+            android:layout_weight="1"
+            android:text="TITULO"
+            android:textSize="@dimen/text_detail_title"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="54dp"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:rotation="180"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24px" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ly_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="92dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="92dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                app:hintTextAppearance="@style/MyHintText">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_ocupacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:hint="Ocupación"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:theme="@style/MyEditText" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="92dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="92dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                app:hintTextAppearance="@style/MyHintText">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_tipo_empleo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:hint="Tipo de empleo"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:theme="@style/MyEditText" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="sans-serif"
+                android:text="Prestaciones laborales"
+                android:textSize="@dimen/text_sub_title"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/chk_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Seguridad Social" />
+
+                    <CheckBox
+                        android:id="@+id/chk_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Vacaciones" />
+
+                    <CheckBox
+                        android:id="@+id/chk_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Prima Vacacional" />
+
+                    <CheckBox
+                        android:id="@+id/chk_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Aguinaldo" />
+
+                    <CheckBox
+                        android:id="@+id/chk_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Seguro de gastos médicos mayores" />
+                </LinearLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/chk_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Seguro de Vida" />
+
+                    <CheckBox
+                        android:id="@+id/chk_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Vales de despensa " />
+
+                    <CheckBox
+                        android:id="@+id/chk_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Fondos de ahorro" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="sans-serif"
+                android:text="Jubilación o pensionado"
+                android:textSize="@dimen/text_sub_title"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/rg_jubilacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_pension_si"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Si" />
+
+                <RadioButton
+                    android:id="@+id/rb_pension_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No" />
+
+                <RadioButton
+                    android:id="@+id/rb_pesnsion_na"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="NA" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </RadioGroup>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="92dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="92dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                app:hintTextAppearance="@style/MyHintText">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_derecho"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:hint="Derechohabiencia"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:theme="@style/MyEditText" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="92dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="92dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                app:hintTextAppearance="@style/MyHintText">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_motivo_derecho"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:hint="Motivo derechohabiencia"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:theme="@style/MyEditText" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="92dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="92dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                app:hintTextAppearance="@style/MyHintText">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_capacidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:hint="Capacidades diferentes"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:theme="@style/MyEditText" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="92dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="92dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                app:hintTextAppearance="@style/MyHintText">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_salud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:hint="Condiciones de salud"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:theme="@style/MyEditText" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="92dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="92dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                app:hintTextAppearance="@style/MyHintText">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_adicciones"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:hint="Adicciones"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:theme="@style/MyEditText" />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="28dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="48dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="Etnia indígena "
+                        android:textSize="@dimen/text_sub_title"
+                        android:textStyle="bold" />
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_etnia"
+                        style="@style/Spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_spinner" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="48dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="Peso (kg) "
+                        android:textSize="@dimen/text_sub_title"
+                        android:textStyle="bold" />
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_peso"
+                        style="@style/Spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_spinner"
+                        android:inputType="number" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="48dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="Talla (cm)"
+                        android:textSize="@dimen/text_sub_title"
+                        android:textStyle="bold" />
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_talla"
+                        style="@style/Spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_spinner"
+                        android:inputType="number" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

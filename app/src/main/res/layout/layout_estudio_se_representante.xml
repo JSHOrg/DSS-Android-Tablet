@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="326dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="326dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:hintTextAppearance="@style/MyHintText">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_comunidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:hint="@string/prompt_comunidad"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:theme="@style/MyEditText" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="326dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="326dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:hintTextAppearance="@style/MyHintText">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_titular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:hint="@string/prompt_nombre_titular"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:theme="@style/MyEditText" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="55dp"
+        android:fontFamily="sans-serif"
+        android:text="Domicilio"
+        android:textSize="@dimen/text_sub_title"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="22dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginStart="22dp"
+            app:hintTextAppearance="@style/MyHintText">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/et_calle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="@string/prompt_calle"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            app:hintTextAppearance="@style/MyHintText">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/et_colonia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="@string/prompt_colonia"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            app:hintTextAppearance="@style/MyHintText">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/et_municipio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="@string/prompt_municipio"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="22dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginStart="22dp"
+            app:hintTextAppearance="@style/MyHintText">
+
+            <android.support.design.widget.TextInputEditText
+                android:inputType="number"
+                android:id="@+id/et_num_ext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="@string/prompt_num_ext"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="22dp"
+            android:layout_marginRight="22dp"
+            app:hintTextAppearance="@style/MyHintText">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/et_num_int"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="@string/prompt_num_int"
+                android:inputType="number"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="55dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/pormpt_lugar_nacimiento"
+        android:textSize="@dimen/text_sub_title"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="22dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginStart="22dp"
+            app:hintTextAppearance="@style/MyHintText">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/et_municipio_nacimiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="@string/prompt_municipio"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="22dp"
+            android:layout_marginRight="22dp"
+            app:hintTextAppearance="@style/MyHintText">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/et_estado_nacimiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="@string/prompt_estado"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:theme="@style/MyEditText" />
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="55dp"
+        android:fontFamily="sans-serif"
+        android:text="Escolaridad"
+        android:textSize="@dimen/text_sub_title"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginStart="22dp"
+            android:entries="@array/escolariadd"/>
+
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="65dp"
+            android:layout_marginStart="65dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/prompt_completa" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/propmt_incompleta"
+                tools:text="Incompleta" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/prompt_estudia" />
+        </RadioGroup>
+    </LinearLayout>
+
+</LinearLayout>

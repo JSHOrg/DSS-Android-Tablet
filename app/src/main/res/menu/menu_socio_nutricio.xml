@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:checkableBehavior="all"
+        android:enabled="true"
+        android:menuCategory="container"
+        >
+        <item
+            android:id="@+id/menu_sn_alimentacion"
+            android:title="@string/menu_sn_alim" app:actionLayout="@layout/widget_check" />
+    </group>
+
+</menu>

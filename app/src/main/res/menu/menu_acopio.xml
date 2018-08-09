@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkableBehavior="single"
+
+        >
+        <item
+            android:id="@+id/nav_economico"
+            android:icon="@drawable/ic_baseline_list_alt_24px"
+            android:title="Estudio Socio Economico"
+            android:iconTint="@color/colorAccent"
+            app:iconTint="@color/colorAccent"
+
+            />
+        <item
+            android:id="@+id/nav_nutricio"
+            android:icon="@drawable/ic_baseline_restaurant_24px"
+            android:iconTint="@color/colorAccent"
+            android:title="Estudio socio nutricio"
+            app:iconTint="@color/colorAccent"
+
+            />
+
+        <item
+            android:id="@+id/nav_control"
+            android:icon="@drawable/ic_baseline_flag_24px"
+            android:iconTint="@color/colorAccent"
+            android:title="Control"
+            app:iconTint="@color/colorAccent"
+
+            />
+    </group>
+
+</menu>

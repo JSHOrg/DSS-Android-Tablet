@@ -1,0 +1,231 @@
+<resources>
+    <string name="app_name">Jalisco sin Hambre</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Nombre de Usuario</string>
+    <string name="prompt_password">Contraseña </string>
+    <string name="prompt_forgot_password">Olvidé mi contraseña </string>
+    <string name="action_sign_in">INICIAR SESIÓN</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="user">Administrador</string>
+    <string name="menu_item_inicio">Inicio</string>
+    <string name="menu_item_contactos">Agenda de contactos</string>
+    <string name="menu_item_mapa">Mapa</string>
+    <string name="menu_item_acopio">Acopio</string>
+    <string name="action_salir">Cerrar sesión</string>
+    <string name="action_soporte_string">Soporte</string>
+    <string name="action_privacidad_string">Aviso de privacidad</string>
+    <string name="action_acerca_de_string">Acerca de</string>
+    <string name="title_activity_contacts">ContactsActivity</string>
+    <string name="tab_text_1">"BANCO DE ALIMENTOS"</string>
+    <string name="tab_text_2">CENTROS COMUNITARIOS</string>
+    <string name="tab_text_3">CENTROS DE ACOPIO</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_notifications">NotificationsActivity</string>
+    <string name="title_activity_acopio">AcopioActivity</string>
+    <string name="prompt_calle">Calle</string>
+    <string name="prompt_colonia">Colonia</string>
+    <string name="prompt_municipio">Municipio</string>
+    <string name="prompt_num_ext">Número exterior</string>
+    <string name="prompt_num_int">Número interior</string>
+    <string name="pormpt_lugar_nacimiento">Lugar de nacimiento</string>
+    <string name="prompt_estado">Estado</string>
+    <string name="prompt_completa">Completa</string>
+    <string name="propmt_incompleta">Incompleta</string>
+    <string name="prompt_estudia">Estudia</string>
+    <string name="prompt_nombre_titular">Nombre del titular</string>
+    <string name="prompt_comunidad">Comunidad</string>
+    <string name="prompt_nom_comunidad_programa">Nombre de la comunidad o programa</string>
+    <string name="prompt_grupo">Grupo</string>
+    <string name="prompt_nombre_vialidad">Nombre de vialidad</string>
+    <string name="prompt_nombre_asentamiento">Nombre de asentamiento</string>
+    <string name="prompt_cp">Código postal</string>
+    <string name="prompt_localidad">Localidad</string>
+    <string name="prompt_clave_municipio">Clave de municipio</string>
+    <string name="prompt_clave_estado">Clave de estado</string>
+    <string name="prompt_vialidades">Entre vialidades</string>
+    <string name="prompt_desc_vialidades">Descripción de ubicación</string>
+    <string name="prompt_telefono_celular">Teléfono / celular</string>
+    <string name="prompt_nombres">Nombre(s)</string>
+    <string name="prompt_primer_apellido">Primer apellido</string>
+    <string name="prompt_segundo_apellido">Segundo apellido</string>
+    <string name="prompt_fecha_nacimiento">Fecha de nacimiento</string>
+    <string name="prompt_genero">Sexo</string>
+    <string name="prompt_entidad_nacimiento">Entidad de nacimiento</string>
+    <string name="prompt_curp">CURP</string>
+    <string name="prompt_escolaridad">Escolaridad</string>
+    <string name="prompt_guardar">Guardar</string>
+    <string name="string_menu_se_representante">Representante</string>
+    <string name="string_menu_se_datos_generales">Datos generales</string>
+    <string name="string_menu_se_estructura_familiar">Estructura familiar</string>
+    <string name="string_menu_se_seguridad_social_y_salud">Seguridad social y salud</string>
+    <string name="string_menu_se_servicios">Servicios</string>
+    <string name="string_menu_se_infraestructura_de_vivienda">Infraestructura de vivienda</string>
+    <string name="string_menu_se_condiciones_econ_micas">Condiciones económicas</string>
+    <string name="string_menu_se_alimentacion">Alimentación</string>
+
+
+    <string name="hint_search">Searching for…</string>
+    <string name="search_description">City, Cities</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="menu_sn_alim">Alimentación</string>
+
+    <string-array name="estado_civil">
+        <item>SOLTERO(A)</item>
+        <item>CASADO(A)</item>
+        <item>DIVORCIADO(A)</item>
+        <item>VIUDO(A)</item>
+        <item>UNION LIBRE</item>
+        <item>CONCUBINATO</item>
+        <item>OTRO</item>
+    </string-array>
+
+    <string-array name="parentesco">
+        <item>MADRE</item>
+        <item>PADRE</item>
+        <item>HERMANO(A)</item>
+        <item>CONYUGE</item>
+        <item>ABUELO(A)</item>
+        <item>TIO(A)</item>
+        <item>HIJO(A)</item>
+    </string-array>
+
+
+    <string-array name="vialidades">
+        <item>AMPLIACIÓN</item>
+        <item>ANDADOR</item>
+        <item>AVENIDA</item>
+        <item>BOULEVARD</item>
+        <item>CALLE</item>
+        <item>CALLEJÓN</item>
+        <item>CALZADA</item>
+        <item>CERRADA</item>
+        <item>CIRCUITO</item>
+        <item>CIRCUNVALACIÓN</item>
+        <item>CONTINUACIÓN</item>
+        <item>CORREDOR</item>
+        <item>DIAGONAL</item>
+        <item>EJE VIAL</item>
+        <item>PASAJE</item>
+        <item>PEATONAL</item>
+        <item>PERIFÉRICO</item>
+        <item>PRIVADA</item>
+        <item>PROLONGACIÓN</item>
+        <item>RETORNO</item>
+        <item>VIADUCTO</item>
+        <item>NINGUNO</item>
+    </string-array>
+
+    <string-array name="asentamientos">
+        <item>AEROPUERTO</item>
+        <item>AMPLIACIÓN</item>
+        <item>BARRIO</item>
+        <item>CANTÓN</item>
+        <item>CIUDAD</item>
+        <item>CIUDAD INDUSTRIAL</item>
+        <item>COLONIA</item>
+        <item>CONDOMINIO</item>
+        <item>CONJUNTO HABITACIONAL</item>
+        <item>CORREDOR INDUSTRIAL</item>
+        <item>COTO</item>
+        <item>CUARTEL</item>
+        <item>EJIDO</item>
+        <item>EXHACIENDA</item>
+        <item>FRACCIÓN</item>
+        <item>FRACCIONAMIENTO</item>
+        <item>GRANJA</item>
+        <item>HACIENDA</item>
+        <item>INGENIO</item>
+        <item>MANZANA</item>
+        <item>PARAJE</item>
+        <item>PARQUE INDUSTRIAL</item>
+        <item>PRIVADA</item>
+        <item>PROLONGACIÓN</item>
+        <item>PUEBLO</item>
+        <item>PUERTO</item>
+        <item>RANCHERÍA</item>
+        <item>RANCHO</item>
+        <item>REGIÓN</item>
+        <item>RESIDENCIAL</item>
+        <item>RINCONADA</item>
+        <item>SECCIÓN</item>
+        <item>SECTOR</item>
+        <item>SUPERMANZANA</item>
+        <item>UNIDAD</item>
+        <item>UNIDAD HABITACIONAL</item>
+        <item>VILLA</item>
+        <item>ZONA INDUSTRIAL</item>
+        <item>ZONA MILITAR</item>
+        <item>ZONA NAVAL</item>
+        <item>NINGUNO</item>
+        <item>ZONA COMERCIAL</item>
+        <item>LOCALIDAD</item>
+
+    </string-array>
+
+    <string-array name="escolariadd">
+        <item>PREESCOLAR O KINDER</item>
+        <item>PRIMARIA</item>
+        <item>SECUNDARIA</item>
+        <item>PREPARATORIA O BACHILLERATO</item>
+        <item>BACHILLERATO TÉCNICO O ESPECIALIZADO</item>
+        <item>NORMAL</item>
+        <item>CARRERA TÉCNICA O COMERCIAL</item>
+        <item>TECNICO SUPERIOR UNIVERSITARIO</item>
+        <item>LICENCIATURA O PROFESIONAL</item>
+        <item>POSGRADO</item>
+        <item>MAESTRIA</item>
+        <item>DOCTORADO</item>
+        <item>POSTDOCTORADO</item>
+    </string-array>
+
+    <string-array name="numeracion">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+    </string-array>
+
+    <string-array name="grado">
+        <item>TERMINADO O PASANTE</item>
+        <item>TITULADO</item>
+        <item>CURSANDO</item>
+        <item>INCONCLUSO</item>
+    </string-array>
+
+
+
+
+</resources>

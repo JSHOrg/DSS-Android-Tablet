@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="¿A qué se dedican las personas de su familia en edad productiva?" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_marginEnd="102dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginRight="102dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="20dp"
+                app:hintTextAppearance="@style/MyHintText">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tv_res_trabajo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:hint="Escriba su respuesta…"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:theme="@style/MyEditText" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Si pudiera especializarse en alguna actividad productiva ¿Qué le gustaría realizar?" />
+
+            <RadioGroup
+                android:id="@+id/rg_actividad_productiva"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rb_relacionado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Algo relacionado a lo que hago actualmente. " />
+
+                <RadioButton
+                    android:id="@+id/rb_ninguno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:text="No me gustaría especializarme." />
+
+                <RadioButton
+                    android:id="@+id/rb_act_otro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:text="Otro." />
+            </RadioGroup>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_marginEnd="102dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginRight="102dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="20dp"
+                app:hintTextAppearance="@style/MyHintText">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tv_resp_actividad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:hint="Favor de especificar que actividad"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:theme="@style/MyEditText" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="¿Con qué conocimientos cuentan las personas de su familia económicamente activas?" />
+
+            <RadioGroup
+                android:id="@+id/rg_conocimiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/rb_const"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Construcción." />
+
+                <RadioButton
+                    android:id="@+id/rb_campo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:text="Campo." />
+
+                <RadioButton
+                    android:id="@+id/rb_carrera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:text="Carrera técnica." />
+
+                <RadioButton
+                    android:id="@+id/rb_nungun_oficio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:text="Ninguno." />
+
+                <RadioButton
+                    android:id="@+id/rb_algun_oficio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:text="Algún oficio." />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="102dp"
+                    android:layout_marginLeft="44dp"
+                    android:layout_marginRight="102dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    app:hintTextAppearance="@style/MyHintText">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/tv_resp_oficio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:hint="Favor de especificar que actividad"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:theme="@style/MyEditText" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <RadioButton
+                    android:id="@+id/rb_otro_oficio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:text="Otro." />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="102dp"
+                    android:layout_marginLeft="44dp"
+                    android:layout_marginRight="102dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    app:hintTextAppearance="@style/MyHintText">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/tv_resp_oficio_otro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:hint="Favor de especificar que actividad"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:theme="@style/MyEditText" />
+
+                </android.support.design.widget.TextInputLayout>
+            </RadioGroup>
+
+
+        </LinearLayout>
+    </ScrollView>
+

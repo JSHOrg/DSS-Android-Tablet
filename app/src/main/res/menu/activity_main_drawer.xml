@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_contactos"
+            android:icon="@drawable/ic_people"
+            android:title="@string/menu_item_contactos"
+            android:iconTint="@color/colorPrimary"
+            app:iconTint="@color/colorPrimary"/>
+        <item
+            android:id="@+id/nav_mapa"
+            android:icon="@drawable/ic_invalid_name"
+            android:iconTint="@color/colorPrimary"
+            app:iconTint="@color/colorPrimary"
+            android:title="@string/menu_item_mapa" />
+        <item
+            android:id="@+id/nav_acopio"
+            android:icon="@drawable/ic_baseline_restaurant_menu_24px"
+            android:iconTint="@color/colorPrimary"
+            app:iconTint="@color/colorPrimary"
+            android:title="@string/menu_item_acopio" />
+    </group>
+
+</menu>
