@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Jalisco sin Hambre</string>
+    <string name="app_name">JaliscoSinHambre</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Nombre de Usuario</string>

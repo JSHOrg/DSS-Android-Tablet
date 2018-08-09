@@ -61,8 +61,6 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 v.requestFocus();
-                Toast toast = Toast.makeText(context, "Focus", Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
         myViewHolder.cvContenedor.setOnFocusChangeListener(new View.OnFocusChangeListener() {

@@ -43,12 +43,9 @@ public class tabsFragment extends Fragment   {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 Utils.currentTab = tab.getText().toString();
-                Toast toast = Toast.makeText(getActivity(), tab.getText(), Toast.LENGTH_SHORT);
-                toast.show();
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                 Intent i = new Intent("TAG_REFRESH");
                 lbm.sendBroadcast(i);
-
             }
 
             @Override
