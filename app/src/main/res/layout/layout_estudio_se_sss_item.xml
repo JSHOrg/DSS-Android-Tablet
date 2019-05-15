@@ -48,48 +48,53 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="92dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="28dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:text="Ocupacion"
+                android:textSize="@dimen/text_sub_title"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/sp_ocupacion"
+                style="@style/Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
                 android:layout_marginLeft="50dp"
-                android:layout_marginRight="92dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_spinner" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="28dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:text="Tipo Empleo"
+                android:textSize="@dimen/text_sub_title"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/sp_tipo_empleo"
+                style="@style/Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"
-                app:hintTextAppearance="@style/MyHintText">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_ocupacion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:hint="Ocupación"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:theme="@style/MyEditText" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="92dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="92dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="20dp"
-                app:hintTextAppearance="@style/MyHintText">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_tipo_empleo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:hint="Tipo de empleo"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:theme="@style/MyEditText" />
-            </android.support.design.widget.TextInputLayout>
+                android:layout_weight="1"
+                android:background="@drawable/bg_spinner" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -265,26 +270,29 @@
                     android:theme="@style/MyEditText" />
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="92dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="92dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="20dp"
-                app:hintTextAppearance="@style/MyHintText">
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="28dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:text="Motivo derecho habiencia"
+                android:textSize="@dimen/text_sub_title"
+                android:textStyle="bold" />
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_motivo_derecho"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:hint="Motivo derechohabiencia"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:theme="@style/MyEditText" />
-            </android.support.design.widget.TextInputLayout>
+            <Spinner
+                android:id="@+id/sp_motivo"
+                style="@style/Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_spinner" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -328,26 +336,31 @@
                     android:theme="@style/MyEditText" />
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="92dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="92dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="20dp"
-                app:hintTextAppearance="@style/MyHintText">
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="28dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:text="Adicciones"
+                android:textSize="@dimen/text_sub_title"
+                android:textStyle="bold" />
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_adicciones"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:hint="Adicciones"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:theme="@style/MyEditText" />
-            </android.support.design.widget.TextInputLayout>
+            <Spinner
+                android:id="@+id/sp_adicciones"
+                style="@style/Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_spinner" />
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"

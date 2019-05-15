@@ -39,13 +39,13 @@ public class FragmentEstudioSEEF extends Fragment
 
                 @Override
                 public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                    Toast.makeText(getActivity(), "on Move", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "on Move", Toast.LENGTH_SHORT).show();
                     return false;
                 }
 
                 @Override
                 public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
-                    Toast.makeText(getActivity(), "on Swiped ", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "on Swiped ", Toast.LENGTH_SHORT).show();
                     //Remove swiped item from list and notify the RecyclerView
                     final int position = viewHolder.getAdapterPosition();
                     expandableEFAdapter.removeItem(position);

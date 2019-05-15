@@ -14,8 +14,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,6 +36,8 @@ public class ExpandableSSSAdapter extends RecyclerView.Adapter<ExpandableSSSAdap
     private ArrayList<ExpandableItem> data;
     private LayoutInflater inflater;
     private int previousPosition = 0;
+
+    public  ArrayList<ExpandableSSSAdapter.ViewHolder> mViewHolders = new ArrayList<>();
 
 
 
@@ -80,23 +84,8 @@ public class ExpandableSSSAdapter extends RecyclerView.Adapter<ExpandableSSSAdap
 
             }
         });
+        mViewHolders.add(myViewHolder);
 
-        /*myViewHolder.etFechaNacimiento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        // +1 because january is zero
-                        final String selectedDate = day + " / " + (month+1) + " / " + year;
-                        ((TextInputEditText)v).setText(selectedDate);
-                    }
-                });
-                newFragment.show(((AppCompatActivity)context).getSupportFragmentManager(),"datePicker");
-
-
-            }
-        });*/
     }
 
 
@@ -148,18 +137,18 @@ public class ExpandableSSSAdapter extends RecyclerView.Adapter<ExpandableSSSAdap
             JSONArray jsonArrayPrestaciones = new JSONArray();
 
             JSONObject jsonBody = new JSONObject();
-            jsonBody.put("Nombre(s)",data.get(position).nombre[position].toString() );
-            jsonBody.put("Ocupación", myViewHolder.et_ocupacion.getText());
-            jsonBody.put("Tipo de empleo", myViewHolder.et_tipo_empleo.getText());
-            jsonBody.put("Derechohabiencia", myViewHolder.et_derecho.getText().toString());
-            jsonBody.put("Motivo derechohabiencia", myViewHolder.et_motivo_derecho.getText().toString());
-            jsonBody.put("Capacidades diferentes", myViewHolder.et_capacidad.getText().toString());
-            jsonBody.put("Condiciones de salud", myViewHolder.et_salud.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("id"), String.valueOf(position));
+            jsonBody.put(StringUtils.stripAccents("Ocupación"), myViewHolder.sp_ocupacion.getSelectedItem().toString());
+            jsonBody.put(StringUtils.stripAccents("Tipo de empleo"), myViewHolder.sp_tipo_empleo.getSelectedItem().toString());
+            jsonBody.put(StringUtils.stripAccents("Derechohabiencia"), myViewHolder.et_derecho.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Motivo derechohabiencia"), myViewHolder.sp_motivo.getSelectedItem().toString());
+            jsonBody.put(StringUtils.stripAccents("Capacidades diferentes"), myViewHolder.et_capacidad.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Condiciones de salud"), myViewHolder.et_salud.getText().toString());
 
-            jsonBody.put("Adicciones", myViewHolder.et_adicciones.getText().toString());
-            jsonBody.put("Etnia indígena ", myViewHolder.et_etnia.getText().toString());
-            jsonBody.put("Peso", myViewHolder.et_peso.getText());
-            jsonBody.put("Talla", myViewHolder.et_talla.getText());
+            jsonBody.put(StringUtils.stripAccents("Adicciones"), myViewHolder.sp_adicciones.getSelectedItem().toString());
+            jsonBody.put(StringUtils.stripAccents("Etnia indígena"), myViewHolder.et_etnia.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Peso"), myViewHolder.et_peso.getText());
+            jsonBody.put(StringUtils.stripAccents("Talla"), myViewHolder.et_talla.getText());
 
             jsonBody.put("Jubilación o pensionado", selectedtext);
 
@@ -180,21 +169,19 @@ public class ExpandableSSSAdapter extends RecyclerView.Adapter<ExpandableSSSAdap
             if (myViewHolder.chk8.isChecked())
                 jsonArrayPrestaciones.put(myViewHolder.chk8.getText().toString());
             
-            jsonBody.put("Prestaciones",jsonArrayPrestaciones);
+            jsonBody.put(StringUtils.stripAccents("Prestaciones"),jsonArrayPrestaciones);
             
-            JSONArray jsonArraybusqueda = new JSONArray();
+            JSONArray jsonArraybusqueda;
             try {
-                if ((Utils.jsonEncuesta).getJSONObject("Estructura familiar").getJSONArray("Integrantes") != null) {
-                    jsonArraybusqueda = (Utils.jsonEncuesta).getJSONObject("Estructura familiar").getJSONArray("Integrantes");
+                    jsonArraybusqueda = (Utils.jsonEncuesta).getJSONObject("Estructura familiar Detalles").getJSONArray("Integrantes");
                     jsonArraybusqueda.put(jsonBody);
-                }
+
             } catch (JSONException ex) {
                 jsonPersona = new JSONObject();
                 jsonArray = new JSONArray();
-                ;
                 jsonArray.put(jsonBody);
                 jsonPersona.put("Integrantes", jsonArray);
-                Utils.jsonEncuesta.put("Estructura familiar", jsonPersona);
+                Utils.jsonEncuesta.put("Estructura familiar Detalles", jsonPersona);
             }
 
 
@@ -208,13 +195,13 @@ public class ExpandableSSSAdapter extends RecyclerView.Adapter<ExpandableSSSAdap
     }
 
      public class ViewHolder extends RecyclerView.ViewHolder {
-        TextInputEditText et_ocupacion,et_tipo_empleo,et_derecho,
-                et_motivo_derecho, et_capacidad,et_salud,et_adicciones,et_etnia,et_peso,et_talla;
+        TextInputEditText et_derecho,et_capacidad,et_salud,et_etnia,et_peso,et_talla;
         RadioGroup rg_jubilacion;
         ImageView chk;
         LinearLayout lyHeader,lyContent;
         CheckBox chk1,chk2,chk3,chk4,chk5,chk6,chk7,chk8;
 
+        Spinner sp_ocupacion,sp_tipo_empleo,sp_motivo,sp_adicciones;
          public ViewHolder(View itemView) {
             super(itemView);
 
@@ -224,13 +211,13 @@ public class ExpandableSSSAdapter extends RecyclerView.Adapter<ExpandableSSSAdap
             chk = (ImageView) itemView.findViewById(R.id.img_visible);
 
 
-            et_ocupacion = (TextInputEditText) itemView.findViewById(R.id.et_ocupacion);
-            et_tipo_empleo = (TextInputEditText) itemView.findViewById(R.id.et_tipo_empleo);
+            sp_ocupacion = (Spinner) itemView.findViewById(R.id.sp_ocupacion);
+            sp_tipo_empleo = (Spinner) itemView.findViewById(R.id.sp_tipo_empleo);
             et_derecho = (TextInputEditText) itemView.findViewById(R.id.et_derecho);
-            et_motivo_derecho = (TextInputEditText) itemView.findViewById(R.id.et_motivo_derecho);
+            sp_motivo = (Spinner) itemView.findViewById(R.id.sp_motivo);
             et_capacidad = (TextInputEditText) itemView.findViewById(R.id.et_capacidad);
             et_salud = (TextInputEditText) itemView.findViewById(R.id.et_salud);
-            et_adicciones = (TextInputEditText) itemView.findViewById(R.id.et_adicciones);
+            sp_adicciones = (Spinner) itemView.findViewById(R.id.sp_adicciones);
 
             et_etnia = (TextInputEditText) itemView.findViewById(R.id.et_etnia);
             et_peso = (TextInputEditText) itemView.findViewById(R.id.et_peso);
@@ -249,7 +236,10 @@ public class ExpandableSSSAdapter extends RecyclerView.Adapter<ExpandableSSSAdap
             chk8 = (CheckBox) itemView.findViewById(R.id.chk_8);
 
 
-
+             new Utils(context).mostrarCatalogo(sp_ocupacion,"Ocupacion");
+             new Utils(context).mostrarCatalogo(sp_tipo_empleo,"TipoEmpleo");
+             new Utils(context).mostrarCatalogo(sp_motivo,"MotivoDerechoHabiencia");
+             new Utils(context).mostrarCatalogo(sp_adicciones,"Adicciones");
 
         }
     }

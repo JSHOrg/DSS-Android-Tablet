@@ -71,16 +71,21 @@ RequestPost {
                     parameters += Constants.KEY_NAME.get(index - 2) + "=" + values[index].toString();
                 }
             }
+            else if (Utils.nombreServicioWebActual == ServiciosWeb.NombreServicioWeb.setEncuesta)
+            {
+                parameters = Utils.jsonEncuestaFinal.toString();
+            }
             else {
 
 
-                jsonObject = new JSONObject();
+                //jsonObject = new JSONObject();
 
-                for (int index = 2; index <= values.length - 1; index++) {
-                    jsonObject.put(Constants.JSON_PARAMS.get(index - 2), values[index].toString());
-                }
+                //for (int index = 2; index <= values.length - 1; index++) {
+                //    jsonObject.put(Constants.JSON_PARAMS.get(index - 2), values[index].toString());
+                //}
 
-                parameters = jsonObject.toString();
+                //parameters = jsonObject.toString();
+                parameters = Utils.jsonEncuestaFinal.toString();
 
             }
             //parameters = jsonObject.toString();

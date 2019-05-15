@@ -31,6 +31,16 @@ import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import project.jsht.mx.org.bamx.jshtablet.Encuestas.FragmentEstudioSE;
+import project.jsht.mx.org.bamx.jshtablet.Encuestas.FragmentEstudioSEAlimentacion;
+import project.jsht.mx.org.bamx.jshtablet.Encuestas.FragmentEstudioSECE;
+import project.jsht.mx.org.bamx.jshtablet.Encuestas.FragmentEstudioSEDG;
+import project.jsht.mx.org.bamx.jshtablet.Encuestas.FragmentEstudioSEEF;
+import project.jsht.mx.org.bamx.jshtablet.Encuestas.FragmentEstudioSEIV;
+import project.jsht.mx.org.bamx.jshtablet.Encuestas.FragmentEstudioSERepresentante;
+import project.jsht.mx.org.bamx.jshtablet.Encuestas.FragmentEstudioSESSS;
+import project.jsht.mx.org.bamx.jshtablet.Encuestas.FragmentEstudioSEServicios;
+import project.jsht.mx.org.bamx.jshtablet.Utils.Constants;
 import project.jsht.mx.org.bamx.jshtablet.Utils.Dialog;
 import project.jsht.mx.org.bamx.jshtablet.Utils.ServiciosWeb;
 import project.jsht.mx.org.bamx.jshtablet.Utils.Utils;
@@ -74,7 +84,7 @@ public class AcopioFragment extends Fragment implements NavigationView.OnNavigat
 
                 if (Utils.posMenu + 1 <= 8) {
                     navigationViewSub.setCheckedItem(navigationViewSub.getMenu().getItem(0).getItemId());
-                    getChildFragmentManager().beginTransaction().replace(R.id.ly_encuestas, Utils.mostrarEncuesta(Utils.posMenu + 1)).commit();
+                    getChildFragmentManager().beginTransaction().replace(R.id.ly_encuestas, Utils.mostrarEncuesta(Utils.posMenu + 1,getActivity())).commit();
                     if (Utils.posMenu == 7) agustarMenuNutricio();
                     else if (Utils.posMenu == 8) agustarMenuControl();
 
@@ -106,7 +116,7 @@ public class AcopioFragment extends Fragment implements NavigationView.OnNavigat
         id = navigationView.getMenu().getItem(0).getItemId();
 
 
-        getChildFragmentManager().beginTransaction().replace(R.id.ly_encuestas, Utils.mostrarEncuesta(0)).commit();
+        getChildFragmentManager().beginTransaction().replace(R.id.ly_encuestas, Utils.mostrarEncuesta(0,getActivity())).commit();
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -141,9 +151,7 @@ public class AcopioFragment extends Fragment implements NavigationView.OnNavigat
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 subID = item.getItemId();
                 try{
-
-
-                    getChildFragmentManager().beginTransaction().replace(R.id.ly_encuestas, Utils.mostrarEncuesta(item,navigationViewSub.getMenu())).commit();
+                    getChildFragmentManager().beginTransaction().replace(R.id.ly_encuestas, Utils.mostrarEncuesta(item,navigationViewSub.getMenu(),getActivity())).commit();
                     tvTitulo.setText(Utils.tituloEncuesta);
                     layoutSlide.closePane();
                 }
@@ -302,8 +310,21 @@ public class AcopioFragment extends Fragment implements NavigationView.OnNavigat
         } else
             Utils.setSharedPreference(getContext(), Utils.jsonEncuestaFinal.toString());
         //Utils.jsonEncuesta = new JSONObject();
+
+        Constants.fragmentEstudioSE= null;
+        Constants.fragmentEstudioSEAlimentacion= null;
+        Constants.fragmentEstudioSECE = null;
+        Constants.fragmentEstudioSEDG = null;
+        Constants.fragmentEstudioSEEF = null;
+        Constants.fragmentEstudioSEIV = null;
+        Constants.fragmentEstudioSERepresentante = null;
+        Constants.fragmentEstudioSEServicios = null;
+        Constants.fragmentEstudioSESSS = null;
+
         Intent intent = new Intent(getActivity(), MainActivity.class);
         startActivity(intent);
+
+
     }
 
 

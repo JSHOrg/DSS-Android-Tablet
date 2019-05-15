@@ -8,8 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Switch;
 
+import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,18 +25,18 @@ import project.jsht.mx.org.bamx.jshtablet.Utils.Utils;
 
 public class FragmentEstudioSEAlimentacion  extends Fragment
 {
-    Switch swRes1,swRes2,swRes3,swRes4,swRes5,swRes6,swRes7,swRes8,swRes9,swRes10,swRes11,swRes12,swRes13;
+    Switch swRes2,swRes3,swRes4,swRes5,swRes6,swRes7,swRes8,swRes10,swRes11,swRes12,swRes13;
     RadioButton  rbEstatusRechazado,rbEstatusEspera,rbEstatusAprobado,
             rbTipoCouta,rbTipoBeca,rbTipoMediaBeca,
             rbFrecuenciaSemanal,rbFrecuenciaQuincenal,rbFrecuenciaMensual;
-    RadioGroup rgEstatus, rgTipo,rgFrecuencia;
+    RadioGroup rgEstatus, rgTipo;
+    Spinner spFrecuencia;
     TextInputEditText tvMeses;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_estudio_se_alimentacion, container, false);
 
-        swRes1 = (Switch) view.findViewById(R.id.sw_resp_1);
         swRes2 = (Switch) view.findViewById(R.id.sw_resp_2);
         swRes3 = (Switch) view.findViewById(R.id.sw_resp_3);
         swRes4 = (Switch) view.findViewById(R.id.sw_resp_4);
@@ -41,7 +44,6 @@ public class FragmentEstudioSEAlimentacion  extends Fragment
         swRes6 = (Switch) view.findViewById(R.id.sw_resp_6);
         swRes7 = (Switch) view.findViewById(R.id.sw_resp_7);
         swRes8 = (Switch) view.findViewById(R.id.sw_resp_8);
-        swRes9 = (Switch) view.findViewById(R.id.sw_resp_9);
         swRes10 = (Switch) view.findViewById(R.id.sw_resp_10);
         swRes11 = (Switch) view.findViewById(R.id.sw_resp_11);
         swRes12 = (Switch) view.findViewById(R.id.sw_resp_12);
@@ -55,13 +57,12 @@ public class FragmentEstudioSEAlimentacion  extends Fragment
         rbTipoBeca = (RadioButton) view.findViewById(R.id.rb_tipo_beca);
         rbTipoMediaBeca = (RadioButton) view.findViewById(R.id.rb_tipo_media_beca);
 
-        rbFrecuenciaSemanal = (RadioButton) view.findViewById(R.id.rb_frecuencia_semanal);
-        rbFrecuenciaQuincenal = (RadioButton) view.findViewById(R.id.rb_frecuencia_quincenal);
-        rbFrecuenciaMensual = (RadioButton) view.findViewById(R.id.rb_frecuencia_mensual);
 
         rgEstatus = (RadioGroup) view.findViewById(R.id.rg_Estatus);
         rgTipo = (RadioGroup) view.findViewById(R.id.rg_tipo);
-        rgFrecuencia = (RadioGroup) view.findViewById(R.id.rg_frecuencia);
+
+        spFrecuencia = (Spinner) view.findViewById(R.id.sp_frecuencia);
+        new Utils(getActivity()).mostrarCatalogo(spFrecuencia,"Frecuencia");
 
         tvMeses = (TextInputEditText) view.findViewById(R.id.tv_meses);
 
@@ -83,45 +84,77 @@ public class FragmentEstudioSEAlimentacion  extends Fragment
             RadioButton rTipo= (RadioButton)  rgTipo.getChildAt(idxTipo);
             String selectedtextTipo = rTipo.getText().toString();
 
-            int radioButtonFrecuenciaID = rgFrecuencia.getCheckedRadioButtonId();
-            View radioButtonFrecuencia = rgFrecuencia.findViewById(radioButtonFrecuenciaID);
-            int idxFrecuencia = rgFrecuencia.indexOfChild(radioButtonFrecuencia);
-            RadioButton rFrecuencia = (RadioButton)  rgFrecuencia.getChildAt(idxFrecuencia);
-            String selectedtextFrecuencia = rFrecuencia.getText().toString();
-
             JSONObject jsonBody = new JSONObject();
-            jsonBody.put("¿Alguna vez usted o algún adulto en su hogar tuvo una alimentación basada en poca variedad de alimentos?",
-                    swRes1.isChecked());
-            jsonBody.put("¿Alguna vez usted o algún adulto en su hogar comió menos de lo que piensa debería comer?",
-                    swRes2.isChecked());
-            jsonBody.put("¿Alguna vez usted o algún adulto en su hogar dejó de desayunar, comer o cenar?",
-                    swRes3.isChecked());
-            jsonBody.put("¿Alguna vez se quedaron sin comida?",
-                    swRes4.isChecked());
-            jsonBody.put("¿Alguna vez usted o algún adulto en su hogar sintió hambre pero no comió?",
-                    swRes5.isChecked());
-            jsonBody.put("¿Alguna vez usted o algún adulto en su hogar sólo comió una vez al día o dejó de comer durante un día?",
-                    swRes6.isChecked());
-            jsonBody.put("¿Alguna vez  algún menor de 18 años en su hogar tuvo una alimentación basada en poca variedad?",
-                    swRes7.isChecked());
-            jsonBody.put("¿Alguna vez algún menor de 18 años en su hogar comió menos de lo que piensa debería comer?",
-                    swRes8.isChecked());
-            jsonBody.put("¿Alguna vez algún menor de 18 años en su hogar dejó de desayunar, comer o cenar?",
-                    swRes9.isChecked());
-            jsonBody.put("¿Alguna vez en su hogar tuvieron que disminuir la cantidad servida en la comida a algún menor de 18 años?",
-                    swRes10.isChecked());
-            jsonBody.put("¿Alguna vez algún menor de 18 años en su hogar sintió hambre pero no comió?",
-                    swRes11.isChecked());
-            jsonBody.put("¿Alguna vez un menor de 18 años se durmió con hambre?",
-                    swRes12.isChecked());
-            jsonBody.put("¿Alguna vez algún menor de 18 años en su hogar sólo comió una vez al día o dejó de comer durante un día?",
-                    swRes13.isChecked());
-            jsonBody.put("Estatus",selectedtextEstatus);
-            jsonBody.put("Tipo",selectedtextTipo);
-            jsonBody.put("Frecuencia",selectedtextFrecuencia);
+            JSONArray jsonArrayPreg = new JSONArray();
 
 
-            Utils.jsonEncuesta.put("Alimentacion",jsonBody);
+            JSONObject jsonObjectP2 = new JSONObject();
+            JSONObject jsonObjectP3 = new JSONObject();
+            JSONObject jsonObjectP4 = new JSONObject();
+            JSONObject jsonObjectP5 = new JSONObject();
+            JSONObject jsonObjectP6 = new JSONObject();
+            JSONObject jsonObjectP7 = new JSONObject();
+            JSONObject jsonObjectP8 = new JSONObject();
+            JSONObject jsonObjectP10 = new JSONObject();
+            JSONObject jsonObjectP11 = new JSONObject();
+            JSONObject jsonObjectP12 = new JSONObject();
+            JSONObject jsonObjectP13 = new JSONObject();
+
+
+            jsonObjectP2.put("Pregunta","¿Alguna vez usted o algún adulto de su hogar comió menos de lo que usted piensa debía comer?");
+            jsonObjectP2.put("Respuesta",  swRes2.isChecked());
+
+            jsonObjectP3.put("Pregunta","¿Alguna vez usted o algún adulto de su hogar dejo de desayunar, comer o cenar? ");
+            jsonObjectP3.put("Respuesta",swRes3.isChecked());
+
+            jsonObjectP4.put("Pregunta","¿Alguna vez se quedaron sin comida?");
+            jsonObjectP4.put("Respuesta",swRes4.isChecked());
+
+            jsonObjectP5.put("Pregunta","¿Alguna vez usted o algún adulto en su hogar sintió hambre pero no comió?");
+            jsonObjectP5.put("Respuesta",swRes5.isChecked());
+
+            jsonObjectP6.put("Pregunta","¿Alguna vez usted o algún adulto en su hogar solo comió una vez al día o dejo de comer durante todo el día?");
+            jsonObjectP6.put("Respuesta",swRes6.isChecked());
+
+            jsonObjectP7.put("Pregunta","¿Alguna vez algún menor de 18 años en su hogar tuvo una alimentacion basada en poca variedad de alimentos?");
+            jsonObjectP7.put("Respuesta",swRes7.isChecked());
+
+            jsonObjectP8.put("Pregunta","¿Alguna vez algún menor de 18 años en su hogar comió menos de lo que debía?");
+            jsonObjectP8.put("Respuesta",swRes8.isChecked());
+
+
+            jsonObjectP10.put("Pregunta","¿Alguna vez en su hogar tuvieron que disminuir la cantidad servidad en la comida a algun menor de 18 años?");
+            jsonObjectP10.put("Respuesta", swRes10.isChecked());
+
+            jsonObjectP11.put("Pregunta","¿Alguna vez algún menor de 18 años en su hogar sintió hambre pero no comió?");
+            jsonObjectP11.put("Respuesta",swRes11.isChecked());
+
+            jsonObjectP12.put("Pregunta","¿Algún menor de 18 años se acostó con hambre?");
+            jsonObjectP12.put("Respuesta", swRes12.isChecked());
+
+            jsonObjectP13.put("Pregunta","¿Alguna vez algún menor de 18 años en su hogar comió una vez al día o dejo de comer durante todo un día?");
+            jsonObjectP13.put("Respuesta", swRes13.isChecked());
+
+            jsonArrayPreg.put(jsonObjectP2);
+            jsonArrayPreg.put(jsonObjectP3);
+            jsonArrayPreg.put(jsonObjectP4);
+            jsonArrayPreg.put(jsonObjectP5);
+            jsonArrayPreg.put(jsonObjectP6);
+            jsonArrayPreg.put(jsonObjectP7);
+            jsonArrayPreg.put(jsonObjectP8);
+            jsonArrayPreg.put(jsonObjectP10);
+            jsonArrayPreg.put(jsonObjectP11);
+            jsonArrayPreg.put(jsonObjectP12);
+            jsonArrayPreg.put(jsonObjectP13);
+
+            jsonBody.put(StringUtils.stripAccents("Estatus"),selectedtextEstatus);
+            jsonBody.put(StringUtils.stripAccents("Tipo"),selectedtextTipo);
+            jsonBody.put(StringUtils.stripAccents("Frecuencia"),spFrecuencia.getSelectedItem().toString());
+            jsonBody.put(StringUtils.stripAccents("Meses"),tvMeses.getText());
+            jsonBody.put(StringUtils.stripAccents("Preguntas"),jsonArrayPreg);
+
+
+            Utils.jsonEncuesta.put(StringUtils.stripAccents("Alimentacion"),jsonBody);
         }catch (JSONException ex)
         {}
 

@@ -1,5 +1,6 @@
 package project.jsht.mx.org.bamx.jshtablet.NetWorking;
 
+import android.os.StrictMode;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -22,6 +23,7 @@ public class RequestGet {
 
 
     String result = "";
+
 
     public String requestGet(String[] values) {
         String urlTemp;
@@ -80,6 +82,62 @@ public class RequestGet {
         } catch (Exception ex) {
             Log.d("error", ex.toString());
         } finally {
+            httpURLConnection.disconnect();
+        }
+        return result;
+    }
+
+
+    public String requestGet(String value) {
+        String urlTemp;
+        String setGet = "";
+        String TOKEN;
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        try {
+            //for (int index = 2; index <= values.length - 1; index++) {
+            //    setGet += "?" + Constants.KEY_NAME.get(index - 2) + "=" + values[index].toString();
+            //}
+            url = new URL(Constants.URL_BASE.concat(value));
+            urlTemp = url.toString();
+            urlTemp = urlTemp.replaceAll(" ", "%20");
+            url = new URL(urlTemp);
+            Log.i("url", url.toString());
+
+            httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+            //if ( SetHeaderes.TokenServicios != null) {
+            //    new SetHeaderes().setToken(httpURLConnection);
+            //}
+            // httpURLConnection.setRequestProperty("Content-Type", "application/json");
+
+            //if ( SetHeaderes.cookieManager != null)
+            //    new SetHeaderes().setCookie(httpURLConnection);
+
+
+            httpURLConnection.setDoOutput(false);
+
+
+
+            if (httpURLConnection.getResponseCode() != 200) //Por alguna razon el response nos da un error
+                inputStream = httpURLConnection.getErrorStream();
+            else if (httpURLConnection.getResponseCode() == 200) {
+                inputStream = httpURLConnection.getInputStream();
+                if ( SetHeaderes.cookieManager == null)
+                    new SetHeaderes().getCookie(httpURLConnection);
+            }
+            //Constants.RESPONSE_CODE = httpURLConnection.getResponseCode();
+            result = convertStreamToString(inputStream);
+
+            Log.i("resultado", result.toString());
+
+            inputStream.close();
+        } catch (Exception ex) {
+            Log.d("error", ex.toString());
+        } finally {
+            if (httpURLConnection != null)
             httpURLConnection.disconnect();
         }
         return result;

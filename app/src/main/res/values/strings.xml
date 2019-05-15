@@ -106,6 +106,10 @@
         <item>HIJO(A)</item>
     </string-array>
 
+    <string-array name="opc">
+        <item>Si</item>
+        <item>No</item>
+    </string-array>
 
     <string-array name="vialidades">
         <item>AMPLIACIÓN</item>

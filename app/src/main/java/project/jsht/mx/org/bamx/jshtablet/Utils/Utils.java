@@ -3,6 +3,7 @@ package project.jsht.mx.org.bamx.jshtablet.Utils;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -12,14 +13,19 @@ import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.MenuItemCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -37,6 +43,9 @@ import project.jsht.mx.org.bamx.jshtablet.Encuestas.FragmentEstudioSESSS;
 import project.jsht.mx.org.bamx.jshtablet.Encuestas.FragmentEstudioSEServicios;
 import project.jsht.mx.org.bamx.jshtablet.Enumeraciones.AcopioOpciones;
 import project.jsht.mx.org.bamx.jshtablet.Enumeraciones.MenuOpciones;
+import project.jsht.mx.org.bamx.jshtablet.NetWorking.Metodos;
+import project.jsht.mx.org.bamx.jshtablet.NetWorking.ProgressDialogMessage;
+import project.jsht.mx.org.bamx.jshtablet.NetWorking.RequestGet;
 import project.jsht.mx.org.bamx.jshtablet.R;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -162,8 +171,14 @@ public  class Utils  {
         return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
-    public static android.support.v4.app.Fragment mostrarEncuesta(MenuItem item, Menu menu)
+    public static android.support.v4.app.Fragment mostrarEncuesta(MenuItem item, Menu menu,Context context)
     {
+
+        ProgressDialog progress;
+        progress = new ProgressDialog(context);
+        progress.setTitle("Cargando información");
+        progress.show();
+
         android.support.v4.app.Fragment fragment = null;
         CompoundButton switchView = null;
         try {
@@ -245,13 +260,54 @@ public  class Utils  {
         }
         else
             Fragments.add(fragment);
+
+        progress.dismiss();
         return fragment;
 
     }
 
-
-    public static android.support.v4.app.Fragment mostrarEncuesta( int pos)
+    public void mostrarCatalogo(Spinner spinner, String servicio)
     {
+
+        ProgressDialog progress;
+        progress = new ProgressDialog(context);
+        progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progress.setTitle("Cargando información");
+        progress.show();
+
+        String response = null;
+        JSONArray jsonArray = null;
+        try {
+            response = new RequestGet().requestGet(Metodos.api + "/" + Metodos.catalogos + servicio);
+            Log.i("CATALOGO", "mostrarCatalogo: " + response);
+            jsonArray = new JSONArray(response);
+
+            ArrayList<String> campos = new ArrayList<>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                if (jsonArray.getJSONObject(i).has("C_Valor")) {
+                    campos.add(jsonArray.getJSONObject(i).getString("C_Valor"));
+                }
+            }
+
+            ArrayAdapter<String> a = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, campos);
+            a.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(a);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        finally {
+            progress.dismiss();
+        }
+    }
+
+    public static android.support.v4.app.Fragment mostrarEncuesta( int pos,Activity context)
+    {
+
+        ProgressDialog progress;
+        progress = new ProgressDialog(context);
+        progress.setTitle("Cargando información");
+        progress.show();
         android.support.v4.app.Fragment fragment = null;
             if (pos == 0) {
                 if (Constants.fragmentEstudioSERepresentante == null)
@@ -308,6 +364,8 @@ public  class Utils  {
         }
         else
             Fragments.add(fragment);
+
+        progress.dismiss();
         return fragment;
 
     }

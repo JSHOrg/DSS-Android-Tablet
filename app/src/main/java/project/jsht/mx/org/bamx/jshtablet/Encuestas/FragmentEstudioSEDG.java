@@ -11,11 +11,13 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import project.jsht.mx.org.bamx.jshtablet.R;
 import project.jsht.mx.org.bamx.jshtablet.Utils.DatePickerFragment;
+import project.jsht.mx.org.bamx.jshtablet.Utils.ServiciosWeb;
 import project.jsht.mx.org.bamx.jshtablet.Utils.Utils;
 
 /**
@@ -25,10 +27,10 @@ import project.jsht.mx.org.bamx.jshtablet.Utils.Utils;
 public class FragmentEstudioSEDG extends Fragment
 {
     TextInputEditText tvNombreComunidad, tvGrupo,tvFechaLevantamiento,tvFechaCaptura,tvNombreVialidad,
-            tvNumExt,tvNumInt,tvNombreAsentamiento,tvCp,tvLocalidad,tvMunicipio,
+            tvNumExt,tvNumInt,tvNombreAsentamiento,tvCp,tvMunicipio,
             tvClaveMunicipio,tvEstado,tvClaveEstado,tvVialidades,tvDecripcion,tvTelefono;
 
-    Spinner spVialidades,spAsentamientos;
+    Spinner spVialidades,spAsentamientos,spLocalidad;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,7 +46,7 @@ public class FragmentEstudioSEDG extends Fragment
         tvNumInt = (TextInputEditText) view.findViewById(R.id.tv_num_int);
         tvNombreAsentamiento = (TextInputEditText) view.findViewById(R.id.tv_nombre_asentamiento);
         tvCp = (TextInputEditText) view.findViewById(R.id.tv_cp);
-        tvLocalidad = (TextInputEditText) view.findViewById(R.id.tv_localidad);
+        spLocalidad = (Spinner) view.findViewById(R.id.sp_localidad);
         tvMunicipio = (TextInputEditText) view.findViewById(R.id.tv_municipio);
         tvClaveMunicipio = (TextInputEditText) view.findViewById(R.id.tv_clave_municipio);
         tvEstado = (TextInputEditText) view.findViewById(R.id.tv_estado);
@@ -60,7 +62,7 @@ public class FragmentEstudioSEDG extends Fragment
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         // +1 because january is zero
-                        final String selectedDate = day + " / " + (month+1) + " / " + year;
+                        final String selectedDate = (day<10? "0"+day : day) + " / " + ((month+1)<10 ? "0" + (month+1) :(month+1))  + " / " + year;
                         ((TextInputEditText)v).setText(selectedDate);
                     }
                 });
@@ -77,7 +79,7 @@ public class FragmentEstudioSEDG extends Fragment
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         // +1 because january is zero
-                        final String selectedDate = day + " / " + (month+1) + " / " + year;
+                        final String selectedDate = (day<10? "0"+day : day) + " / " + ((month+1)<10 ? "0" + (month+1) :(month+1))  + " / " + year;
                         ((TextInputEditText)v).setText(selectedDate);
                     }
                 });
@@ -90,6 +92,10 @@ public class FragmentEstudioSEDG extends Fragment
         spVialidades = (Spinner) view.findViewById(R.id.sp_vialidades);
         spAsentamientos = (Spinner) view.findViewById(R.id.sp_asentamientos);
 
+        new Utils(getActivity()).mostrarCatalogo(spVialidades,"TipoVialidad");
+        new Utils(getActivity()).mostrarCatalogo(spAsentamientos,"TipoAsentamiento");
+        new Utils(getActivity()).mostrarCatalogo(spLocalidad,"Grupos?idPDiagnostico=43");
+
         return view;
     }
 
@@ -99,25 +105,25 @@ public class FragmentEstudioSEDG extends Fragment
 
 
             JSONObject jsonBody = new JSONObject();
-            jsonBody.put("Nombre de la comunidad o programa",tvNombreComunidad.getText().toString());
-            jsonBody.put("Grupo",tvGrupo.getText().toString() );
-            jsonBody.put("Fecha de levantamiento", tvFechaLevantamiento.getText().toString());
-            jsonBody.put("Fecha de captura",tvFechaCaptura.getText().toString() );
-            jsonBody.put("Tipo de vialidad", spVialidades.getSelectedItem().toString() );
-            jsonBody.put("Nombre de vialidad", tvNombreVialidad.getText().toString());
-            jsonBody.put("Número exterior",tvNumExt.getText().toString());
-            jsonBody.put("Número interior",tvNumInt.getText().toString() );
-            jsonBody.put("Tipo de asentamiento",spAsentamientos.getSelectedItem().toString() );
-            jsonBody.put("Nombre de asentamiento",tvNombreAsentamiento.getText().toString() );
-            jsonBody.put("Código postal", tvCp.getText().toString());
-            jsonBody.put("Localidad", tvLocalidad.getText().toString());
-            jsonBody.put("Municipio", tvMunicipio.getText().toString());
-            jsonBody.put("Clave de municipio", tvClaveMunicipio.getText().toString());
-            jsonBody.put("Estado",tvEstado.getText().toString() );
-            jsonBody.put("Clave de estado", tvClaveEstado.getText().toString());
-            jsonBody.put("Entre vialidades",tvVialidades.getText().toString() );
-            jsonBody.put(" Descripción de ubicación ", tvDecripcion.getText().toString());
-            jsonBody.put("Teléfono / celular", tvTelefono.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Nombre de la comunidad o programa"),tvNombreComunidad.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Grupo"),tvGrupo.getText().toString() );
+            jsonBody.put(StringUtils.stripAccents("Fecha de levantamiento"), tvFechaLevantamiento.getText().toString().replace(" ",""));
+            jsonBody.put(StringUtils.stripAccents("Fecha de captura"),tvFechaCaptura.getText().toString().replace(" ","") );
+            jsonBody.put(StringUtils.stripAccents("Tipo de vialidad"), spVialidades.getSelectedItem().toString() );
+            jsonBody.put(StringUtils.stripAccents("Nombre de vialidad"), tvNombreVialidad.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Número exterior"),tvNumExt.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Número interior"),tvNumInt.getText().toString() );
+            jsonBody.put(StringUtils.stripAccents("Tipo de asentamiento"),spAsentamientos.getSelectedItem().toString() );
+            jsonBody.put(StringUtils.stripAccents("Nombre de asentamiento"),tvNombreAsentamiento.getText().toString() );
+            jsonBody.put(StringUtils.stripAccents("Código postal"), tvCp.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Localidad"), spLocalidad.getSelectedItem().toString());
+            jsonBody.put(StringUtils.stripAccents("Municipio"), tvMunicipio.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Clave de municipio"), tvClaveMunicipio.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Estado"),tvEstado.getText().toString() );
+            jsonBody.put(StringUtils.stripAccents("Clave de estado"), tvClaveEstado.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Entre vialidades"),tvVialidades.getText().toString() );
+            jsonBody.put(StringUtils.stripAccents(" Descripción de ubicación"), tvDecripcion.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Teléfono / celular"), tvTelefono.getText().toString());
 
 
             Utils.jsonEncuesta.put("Datos generales",jsonBody);

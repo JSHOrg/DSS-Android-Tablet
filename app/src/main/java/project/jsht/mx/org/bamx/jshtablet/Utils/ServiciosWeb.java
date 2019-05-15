@@ -6,8 +6,11 @@ import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,12 +44,14 @@ public class ServiciosWeb implements onTaskCompleted {
     private NombreServicioWeb nombreServicioWeb;
     private RecyclerView recyclerView;
     private View view;
+    private Spinner spinner;
     private RecyclerView.Adapter adapter;
     public enum NombreServicioWeb {
         Login,
         GetBancosAlimentos,
         GetCentrosComunitarios,
-        setEncuesta
+        setEncuesta,
+        getCatalogo
     }
 
     public ServiciosWeb() {
@@ -79,6 +84,14 @@ public class ServiciosWeb implements onTaskCompleted {
         Utils.nombreServicioWebActual = nombreServicioWeb;
     }
 
+    public ServiciosWeb(Activity context, NombreServicioWeb nombreServicioWeb, Spinner spinner) {
+
+        this.context = context;
+        this.nombreServicioWeb = nombreServicioWeb;
+        Utils.nombreServicioWebActual = nombreServicioWeb;
+        this.spinner = spinner;
+    }
+
     public void LogIn(String txtUsuario, String txtContrasena) {
         Constants.KEY_NAME = new ArrayList<>();
         Constants.KEY_NAME.add("grant_type");
@@ -105,11 +118,12 @@ public class ServiciosWeb implements onTaskCompleted {
 
     public void setEncuesta(String jsonObject)
     {
+
         Constants.JSON_PARAMS = new ArrayList<>();
-        Constants.JSON_PARAMS.add("NombreEstudio");
-        Constants.JSON_PARAMS.add("detalleEstudio");
-        Constants.JSON_PARAMS.add("date");
-        Constants.JSON_PARAMS.add("beneficiario");
+        //Constants.JSON_PARAMS.add("NombreEstudio");
+        Constants.JSON_PARAMS.add("json");
+        //Constants.JSON_PARAMS.add("date");
+        //Constants.JSON_PARAMS.add("beneficiario");
         String id="";
         try {
             JSONObject obj = new JSONObject(jsonObject);
@@ -122,14 +136,13 @@ public class ServiciosWeb implements onTaskCompleted {
         String date = df.format(Calendar.getInstance().getTime());
 
 
-        new NetServicesJSONObject(ServiciosWeb.this, context, true, "Espere un Momento").execute("post", Metodos.api + "/" + Metodos.estudioseconomicos ,"Estudio",jsonObject,date,id);
-
+        new NetServicesJSONObject(ServiciosWeb.this, context, true, "Espere un Momento").execute("post", Metodos.api + "/" + Metodos.estudioseconomicos ,jsonObject);
 
     }
 
     @Override
     public void onTaskCompleted(String response) {
-        if (response != null) {
+        if (response != null && !response.equals("")) {
             try {
                 switch (nombreServicioWeb) {
                     case Login:
@@ -166,7 +179,7 @@ public class ServiciosWeb implements onTaskCompleted {
 
                         break;
                     case setEncuesta:
-                        if (new JSONObject(response).isNull("cause")) {
+                        if (!new JSONArray (response).getJSONObject(0).has("FolioFamiliar")) {
                             Utils.snackbar(view,  "Error al enviar" ,
                                     context.getResources().getColor(R.color.colorAccent),
                                     context.getResources().getColor(R.color.colorPrimary)).show();
@@ -177,6 +190,7 @@ public class ServiciosWeb implements onTaskCompleted {
                         }
 
                         break;
+
                 }
             } catch (Exception ex) {
                 Log.e("ErrorAlIngresar", ex.toString());

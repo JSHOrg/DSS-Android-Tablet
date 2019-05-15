@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,25 +28,18 @@ import project.jsht.mx.org.bamx.jshtablet.Utils.Utils;
 public class FragmentEstudioSEIV extends Fragment
 {
 
-    RadioGroup rgCondiciones, rgCaracteristicas,rgTenencia,rgCasa,rgMuros,rgEscusado,rgTecho;
+    RadioGroup rgCaracteristicas;
     Switch sw1Tiene,sw2Tiene,sw3Tiene,sw4Tiene,sw5Tiene,sw6Tiene,
             sw7Tiene,sw8Tiene,sw9Tiene,sw10Tiene,sw11Tiene,sw12Tiene
             ,sw13Tiene,sw14Tiene,sw15Tiene;
     Switch sw1Sirve,sw2Sirve,sw3Sirve,sw4Sirve,sw5Sirve,sw6Sirve,
             sw7Sirve,sw8Sirve,sw9Sirve,sw10Sirve,sw11Sirve,sw12Sirve
             ,sw13Sirve,sw14Sirve,sw15Sirve;
-    Spinner spNoCuartos, spCuartos;
-
-    RadioButton rb1,rb2,rb3,rb4,rb5,rb6,rb7,rb8,rb9,rb10,rb11,rb12,rb13,rb14,rb15,rb16,rb17,rb18,rb19,rb20
-            ,rb21,rb22,rb23,rb24,rb25,rb26,rb27,rb28,rb29,rb30,rb31,rb32,rb33,rb34,rb35,rb36;
+    Spinner spNoCuartos, spCuartos,sp_tenencia,sp_casa,sp_muros,sp_piso,sp_techo,sp_condiciones;
 
 
-    public static ArrayList<RadioButton> rbTenencia = new ArrayList<>();
-    public static ArrayList<RadioButton> rbCasa = new ArrayList<>();
-    public static ArrayList<RadioButton> rbMuros = new ArrayList<>();
-    public static ArrayList<RadioButton> rbEscusado = new ArrayList<>();
-    public static ArrayList<RadioButton> rbTecho = new ArrayList<>();
-    public static ArrayList<RadioButton> rbCondiciones = new ArrayList<>();
+    RadioButton rb35,rb36;
+
     public static ArrayList<RadioButton> rbcaracteristicas= new ArrayList<>();
 
 
@@ -58,101 +52,26 @@ public class FragmentEstudioSEIV extends Fragment
 
 
 
-        rgTenencia = (RadioGroup) view.findViewById(R.id.rg_tenencia);
-        Utils.setRadioExclusiveClick(rgTenencia);
+        sp_tenencia = (Spinner) view.findViewById(R.id.sp_tenencia);
 
-        rgCasa = (RadioGroup) view.findViewById(R.id.rg_casa);
-        Utils.setRadioExclusiveClick(rgCasa);
+        sp_casa = (Spinner) view.findViewById(R.id.sp_casa);
 
-        rgMuros = (RadioGroup) view.findViewById(R.id.rg_muros);
-        Utils.setRadioExclusiveClick(rgMuros);
+        sp_muros = (Spinner) view.findViewById(R.id.sp_muros);
 
-        rgEscusado = (RadioGroup) view.findViewById(R.id.rg_escusado);
-        Utils.setRadioExclusiveClick(rgEscusado);
+        sp_piso = (Spinner) view.findViewById(R.id.sp_piso);
 
-        rgTecho = (RadioGroup) view.findViewById(R.id.rg_techo);
-        Utils.setRadioExclusiveClick(rgTecho);
+        sp_techo = (Spinner) view.findViewById(R.id.sp_techo);
 
+        sp_condiciones = (Spinner) view.findViewById(R.id.sp_condiciones);
 
-
-
-        rb1 = (RadioButton) view.findViewById(R.id.rb1);
-        rb2 = (RadioButton) view.findViewById(R.id.rb2);
-        rb3 = (RadioButton) view.findViewById(R.id.rb3);
-        rb4 = (RadioButton) view.findViewById(R.id.rb4);
-        rb5 = (RadioButton) view.findViewById(R.id.rb5);
-        rb6 = (RadioButton) view.findViewById(R.id.rb6);
-
-        rbTenencia.add(rb1);
-        rbTenencia.add(rb2);
-        rbTenencia.add(rb3);
-        rbTenencia.add(rb4);
-        rbTenencia.add(rb5);
-        rbTenencia.add(rb6);
+        new Utils(getActivity()).mostrarCatalogo(sp_tenencia,"Tenencia");
+        new Utils(getActivity()).mostrarCatalogo(sp_casa,"TipoVivienda");
+        new Utils(getActivity()).mostrarCatalogo(sp_muros,"Paredes");
+        new Utils(getActivity()).mostrarCatalogo(sp_piso,"TipoPisos");
+        new Utils(getActivity()).mostrarCatalogo(sp_techo,"Techos");
+        new Utils(getActivity()).mostrarCatalogo(sp_condiciones,"CondicionesVivienda");
 
 
-        rb7 = (RadioButton) view.findViewById(R.id.rb7);
-        rb8= (RadioButton) view.findViewById(R.id.rb8);
-        rb9= (RadioButton) view.findViewById(R.id.rb9);
-        rb10 = (RadioButton) view.findViewById(R.id.rb10);
-        rb11 = (RadioButton) view.findViewById(R.id.rb11);
-        rb12 = (RadioButton) view.findViewById(R.id.rb12);
-        rb13 = (RadioButton) view.findViewById(R.id.rb13);
-        rbCasa.add(rb7);
-        rbCasa.add(rb8);
-        rbCasa.add(rb9);
-        rbCasa.add(rb10);
-        rbCasa.add(rb11);
-        rbCasa.add(rb12);
-        rbCasa.add(rb13);
-
-
-        rb14 = (RadioButton) view.findViewById(R.id.rb14);
-        rb15 = (RadioButton) view.findViewById(R.id.rb15);
-        rb16= (RadioButton) view.findViewById(R.id.rb16);
-        rb17 = (RadioButton) view.findViewById(R.id.rb17);
-        rb18 = (RadioButton) view.findViewById(R.id.rb18);
-        rb19 = (RadioButton) view.findViewById(R.id.rb19);
-        rb20 = (RadioButton) view.findViewById(R.id.rb20);
-        rbMuros.add(rb14);
-        rbMuros.add(rb15);
-        rbMuros.add(rb16);
-        rbMuros.add(rb17);
-        rbMuros.add(rb18);
-        rbMuros.add(rb19);
-        rbMuros.add(rb20);
-
-
-        rb21 = (RadioButton) view.findViewById(R.id.rb21);
-        rb22 = (RadioButton) view.findViewById(R.id.rb22);
-        rb23 = (RadioButton) view.findViewById(R.id.rb23);
-        rb24 = (RadioButton) view.findViewById(R.id.rb24);
-        rb25 = (RadioButton) view.findViewById(R.id.rb25);
-        rbEscusado.add(rb21);
-        rbEscusado.add(rb22);
-        rbEscusado.add(rb23);
-        rbEscusado.add(rb24);
-        rbEscusado.add(rb25);
-
-        rb26 = (RadioButton) view.findViewById(R.id.rb26);
-        rb27 = (RadioButton) view.findViewById(R.id.rb27);
-        rb28 = (RadioButton) view.findViewById(R.id.rb28);
-        rb29 = (RadioButton) view.findViewById(R.id.rb29);
-        rb30 = (RadioButton) view.findViewById(R.id.rb30);
-        rb31 = (RadioButton) view.findViewById(R.id.rb31);
-        rbTecho.add(rb26);
-        rbTecho.add(rb27);
-        rbTecho.add(rb28);
-        rbTecho.add(rb29);
-        rbTecho.add(rb30);
-        rbTecho.add(rb31);
-
-        rb32 = (RadioButton) view.findViewById(R.id.rb32);
-        rb33 = (RadioButton) view.findViewById(R.id.rb33);
-        rb34 = (RadioButton) view.findViewById(R.id.rb34);
-        rbCondiciones.add(rb32);
-        rbCondiciones.add(rb33);
-        rbCondiciones.add(rb34);
 
         rb35 = (RadioButton) view.findViewById(R.id.rb35);
         rb36 = (RadioButton) view.findViewById(R.id.rb36);
@@ -218,46 +137,8 @@ public class FragmentEstudioSEIV extends Fragment
     {
         try {
 
-            String selectedtext ="";
-            String selectedtextTipoCasa ="";
-            String selectedtextMuros ="";
-            String selectedtextEscusado ="" ;
-            String selectedtextTecho ="";
-            String selectedtextCondiciones ="";
             String selectedtextCaracteristicas = "";
 
-
-            for (RadioButton radio:rbTenencia) {
-                if (radio.isChecked())
-                    selectedtext = radio.getText().toString();
-
-            }
-            for (RadioButton radio:rbCasa) {
-                if (radio.isChecked())
-                    selectedtextTipoCasa = radio.getText().toString();
-
-            }
-            for (RadioButton radio:rbMuros) {
-                if (radio.isChecked())
-                    selectedtextMuros = radio.getText().toString();
-
-            }
-            for (RadioButton radio:rbEscusado) {
-                if (radio.isChecked())
-                    selectedtextEscusado = radio.getText().toString();
-
-            }
-            for (RadioButton radio:rbTecho) {
-                if (radio.isChecked())
-                    selectedtextTecho = radio.getText().toString();
-
-            }
-
-            for (RadioButton radio:rbCondiciones) {
-                if (radio.isChecked())
-                    selectedtextCondiciones = radio.getText().toString();
-
-            }
 
             for (RadioButton radio:rbcaracteristicas) {
                 if (radio.isChecked())
@@ -270,16 +151,16 @@ public class FragmentEstudioSEIV extends Fragment
 
             JSONArray jsonArray;
             JSONObject jsonObject,jsonBody  = new JSONObject();
-            jsonBody.put("Tenencia",selectedtext );
-            jsonBody.put("Tipo de casa",selectedtextTipoCasa );
-            jsonBody.put("Mayor parte de muros",selectedtextMuros );
-            jsonBody.put("Baño / escusado",selectedtextEscusado );
-            jsonBody.put("Mayor parte de techo",selectedtextTecho );
-            jsonBody.put("Características",selectedtextCaracteristicas );
-            jsonBody.put("Condiciones",selectedtextCondiciones );
+            jsonBody.put(StringUtils.stripAccents("Tenencia"),sp_tenencia.getSelectedItem().toString() );
+            jsonBody.put(StringUtils.stripAccents("Tipo de casa"),sp_casa.getSelectedItem().toString() );
+            jsonBody.put(StringUtils.stripAccents("Mayor parte de muros"),sp_muros.getSelectedItem().toString() );
+            jsonBody.put(StringUtils.stripAccents("Mayor parte de piso"),sp_piso.getSelectedItem().toString() );
+            jsonBody.put(StringUtils.stripAccents("Mayor parte de techo"),sp_techo.getSelectedItem().toString() );
+            jsonBody.put(StringUtils.stripAccents("Características"),selectedtextCaracteristicas );
+            jsonBody.put(StringUtils.stripAccents("Condiciones"),sp_condiciones.getSelectedItem().toString() );
 
-            jsonBody.put("No. de cuartos ",spNoCuartos.getSelectedItem().toString() );
-            jsonBody.put("Cuartos para dormir ",spCuartos.getSelectedItem().toString() );
+            jsonBody.put(StringUtils.stripAccents("No. de cuartos "),spNoCuartos.getSelectedItem().toString() );
+            jsonBody.put(StringUtils.stripAccents("Cuartos para dormir "),spCuartos.getSelectedItem().toString() );
 
             jsonArray = new JSONArray();
             jsonObject = new JSONObject();
@@ -321,7 +202,7 @@ public class FragmentEstudioSEIV extends Fragment
             jsonObject.put("Tiene",sw6Tiene.isChecked());
             jsonObject.put("Sirve",sw6Sirve.isChecked());
             jsonArray.put(jsonObject);
-            jsonBody.put("Radio",jsonArray);
+            jsonBody.put(StringUtils.stripAccents("Radio"),jsonArray);
 
             jsonArray = new JSONArray();
             jsonObject = new JSONObject();
@@ -342,7 +223,7 @@ public class FragmentEstudioSEIV extends Fragment
             jsonObject.put("Tiene",sw9Tiene.isChecked());
             jsonObject.put("Sirve",sw9Sirve.isChecked());
             jsonArray.put(jsonObject);
-            jsonBody.put("Automóvil",jsonArray);
+            jsonBody.put(StringUtils.stripAccents("Automóvil"),jsonArray);
 
             jsonArray = new JSONArray();
             jsonObject = new JSONObject();
@@ -384,7 +265,7 @@ public class FragmentEstudioSEIV extends Fragment
             jsonObject.put("Tiene",sw15Tiene.isChecked());
             jsonObject.put("Sirve",sw15Sirve.isChecked());
             jsonArray.put(jsonObject);
-            jsonBody.put("Teléfono",jsonArray);
+            jsonBody.put(StringUtils.stripAccents("Teléfono"),jsonArray);
 
 
 

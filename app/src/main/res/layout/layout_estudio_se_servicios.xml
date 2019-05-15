@@ -21,45 +21,18 @@
         android:textSize="@dimen/text_sub_title"
         android:textStyle="bold" />
 
-    <RadioGroup
-        android:id="@+id/rg_Luz"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:layout_marginTop="29dp"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rb_luz_publico"
+        <Spinner
+            android:id="@+id/sp_luz"
+            style="@style/Spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:checked="true"
-            android:text="Servicio público" />
-
-        <RadioButton
-            android:id="@+id/rb_luz_particular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Planta particular" />
-
-        <RadioButton
-            android:id="@+id/rb_luz_solar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Panel solar" />
-
-        <RadioButton
-            android:id="@+id/rb_luz_no"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="No tiene" />
-
-    </RadioGroup>
+            android:background="@drawable/bg_spinner" />
 
     <TextView
         android:layout_width="match_parent"
@@ -72,84 +45,18 @@
         android:textStyle="bold" />
 
 
-    <RadioGroup
-        android:id="@+id/rg_drenaje"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RadioGroup
-            android:id="@+id/rg_drenaje_sub1"
+        <Spinner
+            android:id="@+id/sp_drenaje"
+            style="@style/Spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
-            android:layout_marginTop="29dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_drenaje_publico"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:text="Red pública" />
-
-            <RadioButton
-                android:id="@+id/rb_drenaje_fosa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Fosa séptica" />
-
-            <RadioButton
-                android:id="@+id/rb_drenaje_tuberia_grieta"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text='Tubería que da a una grieta o barranca"' />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </RadioGroup>
-
-        <RadioGroup
-            android:id="@+id/rg_drenaje_sub2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
+            android:layout_height="56dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_drenaje_tuberia_rio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tubería que da a un  río, lago o mar" />
-
-            <RadioButton
-                android:id="@+id/rb_drenaje_no"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="No tiene" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </RadioGroup>
-    </RadioGroup>
+            android:layout_weight="1"
+            android:background="@drawable/bg_spinner" />
 
     <TextView
         android:id="@+id/textView18"
@@ -162,84 +69,18 @@
         android:textSize="@dimen/text_sub_title"
         android:textStyle="bold" />
 
-    <RadioGroup
-        android:id="@+id/rg_escusado"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RadioGroup
-            android:id="@+id/rg_escusado_sub1"
+        <Spinner
+            android:id="@+id/sp_escusado"
+            style="@style/Spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
-            android:layout_marginTop="29dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_escusado_descarga"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:text="Descarga directa" />
-
-            <RadioButton
-                android:id="@+id/rb_escusado_cubeta"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Agua con cubeta" />
-
-            <RadioButton
-                android:id="@+id/rb_escusado_letrina"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Letrina seca" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </RadioGroup>
-
-        <RadioGroup
-            android:id="@+id/rg_escusado_sub2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
+            android:layout_height="56dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_escusado_poso"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pozo u hoyo" />
-
-            <RadioButton
-                android:id="@+id/rb_escusado_no"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="No tiene" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </RadioGroup>
-    </RadioGroup>
+            android:layout_weight="1"
+            android:background="@drawable/bg_spinner" />
 
         <TextView
             android:id="@+id/textView19"
@@ -253,86 +94,18 @@
             android:textStyle="bold"
             tools:text="Combustible" />
 
-    <RadioGroup
-        android:id="@+id/rg_combustible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RadioGroup
-            android:id="@+id/rg_combustible_sub1"
+        <Spinner
+            android:id="@+id/sp_combustible"
+            style="@style/Spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
-            android:layout_marginTop="29dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_combustible_gas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:text="Gas tanque" />
-
-            <RadioButton
-                android:id="@+id/rb_combustible_electricidad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Electricidad" />
-
-            <RadioButton
-                android:id="@+id/rb_combustible_gas_n"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Gas natural" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </RadioGroup>
-
-        <RadioGroup
-            android:id="@+id/rg_combustible_sub2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
+            android:layout_height="56dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_combustible_carbon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Leña o carbón sin chimenea" />
-
-            <RadioButton
-                android:id="@+id/rb_combustible_carbon_chimenea"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Leña o carbón con chimenea" />
-
-            <RadioButton
-                android:id="@+id/rb_combustible_otro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Otro combustible " />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </RadioGroup>
-    </RadioGroup>
+            android:layout_weight="1"
+            android:background="@drawable/bg_spinner" />
 
         <TextView
             android:id="@+id/textView11"
@@ -346,118 +119,17 @@
             android:textStyle="bold"
             tools:text="Agua" />
 
-    <RadioGroup
-        android:id="@+id/rg_agua"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RadioGroup
-            android:id="@+id/rg_agua_sub_1"
+        <Spinner
+            android:id="@+id/sp_agua"
+            style="@style/Spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
-            android:layout_marginTop="29dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_agua_domiciliaria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:text="Toma domiciliaria" />
-
-            <RadioButton
-                android:id="@+id/rb_agua_comun"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Toma común o fuera de vivienda" />
-
-            <RadioButton
-                android:id="@+id/rb_agua_llave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Llave pública" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </RadioGroup>
-
-        <RadioGroup
-            android:id="@+id/rg_agua_sub_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
+            android:layout_height="56dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_agua_acarrea"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Acarrean de otra vivienda" />
-
-            <RadioButton
-                android:id="@+id/rb_agua_pipa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pipa" />
-
-            <RadioButton
-                android:id="@+id/rb_agua_pozo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pozo, río, lago " />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </RadioGroup>
-
-        <RadioGroup
-            android:id="@+id/rg_agua_sub_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_agua_no"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Sin servicio" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </RadioGroup>
-    </RadioGroup>
+            android:layout_weight="1"
+            android:background="@drawable/bg_spinner" />
 </LinearLayout>
 </ScrollView>

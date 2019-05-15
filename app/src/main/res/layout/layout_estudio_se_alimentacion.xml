@@ -33,34 +33,6 @@
                 android:gravity="start"
                 android:text="Alimentación (En los últimos meses por falta de dinero u otros recursos)" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:lineSpacingExtra="5sp"
-                    android:lines="2"
-                    android:text="¿Alguna vez usted o algún adulto en su hogar tuvo una alimentación basada en poca variedad de alimentos?"
-                    android:textColor="#de000000"
-                    android:textSize="15sp"
-                    android:textStyle="normal" />
-
-                <Switch
-                    android:id="@+id/sw_resp_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="60dp"
-                    android:layout_weight="3"
-                    android:gravity="end"/>
-
-            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -302,38 +274,7 @@
 
         </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:lineSpacingExtra="5sp"
-                    android:lines="2"
-                    android:text="¿Alguna vez algún menor de 18 años en su hogar dejó de desayunar, comer o cenar?"
-                    android:textColor="#de000000"
-                    android:textSize="15sp"
-                    android:textStyle="normal" />
-
-                <Switch
-                    android:id="@+id/sw_resp_9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="60dp"
-                    android:layout_weight="3"
-                    android:gravity="end"
-                    android:textOff="No"
-                    android:textOn="Si" />
-
-            </LinearLayout>
-
-            <LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="16dp"
@@ -463,15 +404,15 @@
             style="@style/TextBold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="49dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="40dp"
             android:fontFamily="sans-serif"
             android:gravity="start"
-            android:text="Si en el hogar no hay personas menores de 18 años pase a la sección 8. Resultados" />
+            android:text="Resolución del banco de alimentos" />
 
         <TextView
             style="@style/TextBold"
@@ -591,44 +532,18 @@
             android:gravity="start"
             android:text="Frecuencia" />
 
-        <RadioGroup
-            android:id="@+id/rg_frecuencia"
+        <Spinner
+            android:id="@+id/sp_frecuencia"
+            style="@style/Spinner"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginStart="20dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_frecuencia_semanal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:text="Semanal " />
-
-            <RadioButton
-                android:id="@+id/rb_frecuencia_quincenal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Quincenal" />
-
-            <RadioButton
-                android:id="@+id/rb_frecuencia_mensual"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Mensual " />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </RadioGroup>
+            android:layout_height="56dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_spinner" />
 
         <LinearLayout
             android:layout_width="wrap_content"

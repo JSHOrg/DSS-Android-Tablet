@@ -20,6 +20,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -68,7 +69,6 @@ public class ExpandableEFAdapter extends RecyclerView.Adapter<ExpandableEFAdapte
         myViewHolder.etFechaNacimiento.setText("");
         myViewHolder.etEntidad.setText("");
         myViewHolder.etCurp.setText("");
-        myViewHolder.etAsisteEscuela.setText("");
         myViewHolder.etNombre.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -117,7 +117,7 @@ public class ExpandableEFAdapter extends RecyclerView.Adapter<ExpandableEFAdapte
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         // +1 because january is zero
-                        final String selectedDate = day + " / " + (month+1) + " / " + year;
+                        final String selectedDate = (day<10? "0"+day : day) + " / " + ((month+1)<10 ? "0" + (month+1) :(month+1))  + " / " + year;
                         ((TextInputEditText)v).setText(selectedDate);
                     }
                 });
@@ -136,29 +136,30 @@ public class ExpandableEFAdapter extends RecyclerView.Adapter<ExpandableEFAdapte
             JSONArray jsonArray = new JSONArray();;
 
             JSONObject jsonBody = new JSONObject();
-            jsonBody.put("Nombre(s)", myViewHolder.etNombre.getText());
-            jsonBody.put("Primer apellido", myViewHolder.etApellidoP.getText());
-            jsonBody.put("Segundo apellido", myViewHolder.etApellidoM.getText().toString());
-            jsonBody.put("Fecha de nacimiento", myViewHolder.etFechaNacimiento.getText().toString());
-            jsonBody.put("Sexo", myViewHolder.rbHombre.isChecked() ? myViewHolder.rbHombre.getText().toString() : myViewHolder.rbMujer.getText().toString());
-            jsonBody.put("Entidad de nacimiento", myViewHolder.etEntidad.getText().toString());
-            jsonBody.put("CURP", myViewHolder.etCurp.getText().toString());
-            jsonBody.put("Estado civil", myViewHolder.spEstadoCivil.getSelectedItem().toString());
-            jsonBody.put("Parentesco", myViewHolder.spParentesco.getSelectedItem().toString());
-            jsonBody.put("Grado", myViewHolder.spGrado.getSelectedItem().toString());
-            jsonBody.put("Nivel", myViewHolder.spNivel.getSelectedItem().toString());
-            jsonBody.put("Asiste a la escuela…", myViewHolder.etAsisteEscuela.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("id"), String.valueOf(position));
+            jsonBody.put(StringUtils.stripAccents("Nombre(s)"), myViewHolder.etNombre.getText());
+            jsonBody.put(StringUtils.stripAccents("Primer apellido"), myViewHolder.etApellidoP.getText());
+            jsonBody.put(StringUtils.stripAccents("Segundo apellido"), myViewHolder.etApellidoM.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Fecha de nacimiento"), myViewHolder.etFechaNacimiento.getText().toString().replace(" ",""));
+            jsonBody.put(StringUtils.stripAccents("Sexo"), myViewHolder.rbHombre.isChecked() ? myViewHolder.rbHombre.getText().toString() : myViewHolder.rbMujer.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Entidad de nacimiento"), myViewHolder.etEntidad.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("CURP"), myViewHolder.etCurp.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Estado civil"), myViewHolder.spEstadoCivil.getSelectedItem().toString());
+            jsonBody.put(StringUtils.stripAccents("Parentesco"), myViewHolder.spParentesco.getSelectedItem().toString());
+            jsonBody.put(StringUtils.stripAccents("Grado"), myViewHolder.spGrado.getSelectedItem().toString());
+            jsonBody.put(StringUtils.stripAccents("Nivel"), myViewHolder.spNivel.getSelectedItem().toString());
+            jsonBody.put(StringUtils.stripAccents("Asiste a la escuela"), myViewHolder.spAsisteEscuela.getSelectedItem().toString());
 
-            JSONArray jsonArraybusqueda = new JSONArray();
+            JSONArray jsonArraybusqueda;
             try {
-                if ((Utils.jsonEncuesta).getJSONObject("Estructura familiar").getJSONArray("Integrantes") != null) {
+
                     jsonArraybusqueda = (Utils.jsonEncuesta).getJSONObject("Estructura familiar").getJSONArray("Integrantes");
                     jsonArraybusqueda.put(jsonBody);
-                }
+
             }catch (JSONException ex)
             {
                 jsonPersona = new JSONObject();
-                jsonArray = new JSONArray();;
+                jsonArray = new JSONArray();
                 jsonArray.put(jsonBody);
                 jsonPersona.put("Integrantes",jsonArray);
                 Utils.jsonEncuesta.put("Estructura familiar",jsonPersona);
@@ -217,9 +218,9 @@ public class ExpandableEFAdapter extends RecyclerView.Adapter<ExpandableEFAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextInputEditText etNombre,etApellidoP,etApellidoM,
-        etFechaNacimiento, etEntidad,etCurp,etAsisteEscuela;
+        etFechaNacimiento, etEntidad,etCurp;
         RadioButton rbHombre,rbMujer;
-        Spinner spEstadoCivil,spParentesco,spGrado,spNivel;
+        Spinner spEstadoCivil,spParentesco,spGrado,spNivel,spAsisteEscuela;
         ImageView chk;
         LinearLayout lyHeader,lyContent;
 
@@ -238,7 +239,6 @@ public class ExpandableEFAdapter extends RecyclerView.Adapter<ExpandableEFAdapte
             etFechaNacimiento = (TextInputEditText) itemView.findViewById(R.id.et_fecha_nacimiento);
             etEntidad = (TextInputEditText) itemView.findViewById(R.id.et_entidad);
             etCurp = (TextInputEditText) itemView.findViewById(R.id.et_curp);
-            etAsisteEscuela = (TextInputEditText) itemView.findViewById(R.id.et_asiste_escuela);
 
             rbHombre = (RadioButton) itemView.findViewById(R.id.rb_hombre);
             rbMujer = (RadioButton) itemView.findViewById(R.id.rb_mujer);
@@ -248,7 +248,10 @@ public class ExpandableEFAdapter extends RecyclerView.Adapter<ExpandableEFAdapte
             spGrado = (Spinner) itemView.findViewById(R.id.sp_grado);
             spNivel = (Spinner) itemView.findViewById(R.id.sp_nivel);
 
+            spAsisteEscuela = (Spinner) itemView.findViewById(R.id.sp_escuela);
 
+            new Utils(context).mostrarCatalogo(spEstadoCivil,"EstadoCivil");
+            new Utils(context).mostrarCatalogo(spGrado,"Escolaridad");
 
         }
     }

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -75,16 +76,17 @@ public class FragmentEstudioSE extends Fragment
             String selectedtextActividadProductiva = rActividadProductiva.getText().toString();
 
 
-            JSONObject jsonBody = new JSONObject();
-            jsonBody.put("¿A qué se dedican las personas de su familia en edad productiva?", tvRespTrabajo.getText().toString());
-            jsonBody.put("Si pudiera especializarse en alguna actividad productiva ¿Qué le gustaría realizar?",
-                    selectedtext != "Otro." ? selectedtext : tvRespActividad);
-            jsonBody.put("¿Con qué conocimientos cuentan las personas de su familia económicamente activas?",
-                    selectedtextActividadProductiva == "Algún oficio." ? tvRespOficio.getText() :
-                            selectedtextActividadProductiva == "Otro." ? tvRespOficioOtro.getText() : selectedtextActividadProductiva);
 
+            JSONObject jsonBody = new JSONObject();
+            jsonBody.put(StringUtils.stripAccents("¿A qué se dedican las personas de su familia en edad productiva?"), tvRespTrabajo.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Si pudiera especializarse en alguna actividad productiva ¿Qué le gustaría realizar?"),
+                    selectedtext != "Otro." ? StringUtils.stripAccents(selectedtext) : StringUtils.stripAccents(tvRespActividad.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("¿Con qué conocimientos cuentan las personas de su familia económicamente activas?"),
+                    selectedtextActividadProductiva == StringUtils.stripAccents("Algún oficio.") ? StringUtils.stripAccents(tvRespOficio.getText().toString()) :
+                            selectedtextActividadProductiva == "Otro." ? tvRespOficioOtro.getText() : selectedtextActividadProductiva);
             Utils.jsonEncuesta.put("Control",jsonBody);
-        }catch (JSONException ex)
+        }
+        catch (JSONException ex)
         {}
 
 

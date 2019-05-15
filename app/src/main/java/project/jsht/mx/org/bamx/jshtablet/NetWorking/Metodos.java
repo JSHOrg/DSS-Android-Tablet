@@ -10,5 +10,7 @@ public class Metodos {
     public static final String api = "api";
     public static final String bancoAlimentos = "bancoalimentos";
     public static final String comunitarios = "comunitarios";
-    public static final String estudioseconomicos ="estudioseconomicos";
+    public static final String estudioseconomicos ="EstudiosSocioNuevo";
+    public static final String catalogos ="Catalogos/";
+
 }

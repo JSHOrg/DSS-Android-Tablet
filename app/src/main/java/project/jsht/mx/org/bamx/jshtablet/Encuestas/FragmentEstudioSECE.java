@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 import android.widget.Switch;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,8 +28,8 @@ public class FragmentEstudioSECE extends Fragment
     TextInputEditText tvPadre,tvMadre,tvHijos,tvProspera,tvAdultos,tvBecas,tvPension
             ,tvAportacionOtros, tvAportacionTotal;
 
-    TextInputEditText tvTipoApoyo,tvProporciona,tvFrecuencia;
-    TextInputEditText tvFrecuenciaRemesas;
+    TextInputEditText tvTipoApoyo;
+    Spinner spFrecuenciaRemesas,spProporciona,spFrecuencia;;
     Switch swResp;
 
     @Override
@@ -59,10 +61,14 @@ public class FragmentEstudioSECE extends Fragment
         tvAportacionTotal = (TextInputEditText) view.findViewById(R.id.tv_aportacion_total);
 
         tvTipoApoyo = (TextInputEditText) view.findViewById(R.id.tv_tipo_apoyo);
-        tvProporciona = (TextInputEditText) view.findViewById(R.id.tv_proporciona);
-        tvFrecuencia = (TextInputEditText) view.findViewById(R.id.tv_frecuencia);
 
-        tvFrecuenciaRemesas = (TextInputEditText) view.findViewById(R.id.tv_frecuencia_remesas);
+        spProporciona = (Spinner) view.findViewById(R.id.sp_proporciona);
+        spFrecuencia = (Spinner) view.findViewById(R.id.sp_frecuencia);
+        spFrecuenciaRemesas = (Spinner) view.findViewById(R.id.sp_frecuencia_remesas);
+
+        new Utils(getActivity()).mostrarCatalogo(spProporciona,"MotivoDerechoHabiencia");
+        new Utils(getActivity()).mostrarCatalogo(spFrecuencia,"Frecuencia");
+        new Utils(getActivity()).mostrarCatalogo(spFrecuenciaRemesas,"Frecuencia");
 
         swResp = (Switch) view.findViewById(R.id.sw_resp);
 
@@ -74,35 +80,34 @@ public class FragmentEstudioSECE extends Fragment
         try {
 
             JSONObject jsonBody = new JSONObject();
-            jsonBody.put("Vivienda", String.valueOf(tvVivienda.getText().toString()));
-            jsonBody.put("Alimentación", String.valueOf(tvAlimentacion.getText().toString()));
-            jsonBody.put("Luz", String.valueOf(tvLuz.getText().toString()));
-            jsonBody.put("Gas", String.valueOf(tvGas.getText().toString()));
-            jsonBody.put("Agua", String.valueOf(tvAgua.getText().toString()));
-            jsonBody.put("Teléfono", String.valueOf(tvTelefono.getText().toString()));
-            jsonBody.put("Celular", String.valueOf(tvCelular.getText().toString()));
-            jsonBody.put("Atención médica", String.valueOf(tvMedica.getText().toString()));
-            jsonBody.put("Educación", String.valueOf(tvEducacion.getText().toString()));
-            jsonBody.put("Transporte", String.valueOf(tvTransporte.getText().toString()));
-            jsonBody.put("Condiciones económicas Otros", String.valueOf(tvCondicionesOtros.getText().toString()));
-            jsonBody.put("Condiciones económicas TOTAL", String.valueOf(tvCondicionesTotal.getText().toString()));
-            jsonBody.put("Padre", String.valueOf(tvPadre.getText().toString()));
-            jsonBody.put("Madre", String.valueOf(tvMadre.getText().toString()));
-            jsonBody.put("Hijos", String.valueOf(tvHijos.getText().toString()));
-            jsonBody.put("PROSPERA", String.valueOf(tvProspera.getText().toString()));
-            jsonBody.put("Adultos mayores ", String.valueOf(tvAdultos.getText().toString()));
-            jsonBody.put("Becas", String.valueOf(tvBecas.getText().toString()));
-            jsonBody.put("Pensión", String.valueOf(tvPension.getText().toString()));
-            jsonBody.put("Aportación semanal Otros", String.valueOf(tvAportacionOtros.getText().toString()));
-            jsonBody.put("Aportación semanal TOTAL", String.valueOf(tvAportacionTotal.getText().toString()));
-            jsonBody.put("Tipo de apoyo", tvTipoApoyo.getText().toString());
-            jsonBody.put("Quien lo proporciona",tvProporciona.getText().toString());
-            jsonBody.put("Frecuencia del apoyo", tvFrecuencia.getText().toString());
-            jsonBody.put("¿Alguien en el hogar recibe dinero proveniente de otros países?", tvFrecuenciaRemesas.getText().toString());
-            jsonBody.put("Frecuencia del apoyo", swResp.isChecked());
+            jsonBody.put(StringUtils.stripAccents("Vivienda"), String.valueOf(tvVivienda.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Alimentación"), String.valueOf(tvAlimentacion.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Luz"), String.valueOf(tvLuz.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Gas"), String.valueOf(tvGas.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Agua"), String.valueOf(tvAgua.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Teléfono"), String.valueOf(tvTelefono.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Celular"), String.valueOf(tvCelular.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Atención médica"), String.valueOf(tvMedica.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Educación"), String.valueOf(tvEducacion.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Transporte"), String.valueOf(tvTransporte.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Condiciones económicas Otros"), String.valueOf(tvCondicionesOtros.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Condiciones económicas TOTAL"), String.valueOf(tvCondicionesTotal.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Padre"), String.valueOf(tvPadre.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Madre"), String.valueOf(tvMadre.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Hijos"), String.valueOf(tvHijos.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("PROSPERA"), String.valueOf(tvProspera.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Adultos mayores "), String.valueOf(tvAdultos.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Becas"), String.valueOf(tvBecas.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Pensión"), String.valueOf(tvPension.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Aportación semanal Otros"), String.valueOf(tvAportacionOtros.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Aportación semanal TOTAL"), String.valueOf(tvAportacionTotal.getText().toString()));
+            jsonBody.put(StringUtils.stripAccents("Tipo de apoyo"), tvTipoApoyo.getText().toString());
+            jsonBody.put(StringUtils.stripAccents("Quien lo proporciona"),spProporciona.getSelectedItem().toString());
+            jsonBody.put(StringUtils.stripAccents("Frecuencia del apoyo"), spFrecuencia.getSelectedItem().toString());
+            jsonBody.put(StringUtils.stripAccents("¿Alguien en el hogar recibe dinero proveniente de otros países?"), spFrecuenciaRemesas.getSelectedItem().toString());
 
 
-            Utils.jsonEncuesta.put("Condiciones económicas",jsonBody);
+            Utils.jsonEncuesta.put(StringUtils.stripAccents("Condiciones económicas"),jsonBody);
         }catch (JSONException ex)
         {}
 

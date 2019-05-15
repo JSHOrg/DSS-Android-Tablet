@@ -40,9 +40,12 @@ public class FragmentEstudioSESSS extends Fragment
 
     public  void guardar()
     {
-        for(int i = 0; i <lyRecycler.getAdapter().getItemCount();  i++ )
+
+        for(int i = 0; i <expandableSSSAdapter.mViewHolders.size();  i++ )
         {
-            expandableSSSAdapter.guardar((ExpandableSSSAdapter.ViewHolder)lyRecycler.findViewHolderForAdapterPosition(i),i);
+            ExpandableSSSAdapter.ViewHolder viewHolder = expandableSSSAdapter.mViewHolders.get(i);
+            if (viewHolder != null)
+            expandableSSSAdapter.guardar(viewHolder,i);
         }
 
     }
