@@ -26,6 +26,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
+                android:textColor="@color/colorAccent"
                 android:background="@drawable/rounded_corner"
                 android:gravity="center"
                 android:text="SM" />

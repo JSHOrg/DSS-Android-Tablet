@@ -66,10 +66,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginEnd="75dp"
-        android:layout_marginLeft="75dp"
-        android:layout_marginRight="75dp"
-        android:layout_marginStart="75dp"
+      android:layout_margin="20dp"
         android:orientation="vertical"
         android:clickable="true"      android:focusable="true"
 
@@ -100,7 +97,7 @@
         <FrameLayout
             android:id="@+id/ly_encuestas"
             android:layout_width="match_parent"
-            android:layout_height="1014dp"
+            android:layout_height="match_parent"
             android:layout_marginBottom="47dp"
             android:background="@android:color/background_light"
             tools:layout_editor_absoluteY="3dp"

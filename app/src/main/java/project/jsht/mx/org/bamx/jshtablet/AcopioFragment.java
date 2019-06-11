@@ -281,7 +281,10 @@ public class AcopioFragment extends Fragment implements NavigationView.OnNavigat
     public void enviarEncuestas()
     {
 
-        Toast.makeText(getContext(), " Encuesta Terminada", Toast.LENGTH_SHORT);
+        Toast.makeText(getContext(), " Encuesta Terminada y guardada exitosamente.", Toast.LENGTH_SHORT);
+
+
+
         for (Fragment fragment : Utils.Fragments) {
             if (fragment != null) {
 
@@ -309,7 +312,7 @@ public class AcopioFragment extends Fragment implements NavigationView.OnNavigat
             new ServiciosWeb(getActivity(), ServiciosWeb.NombreServicioWeb.setEncuesta).setEncuesta(Utils.jsonEncuestaFinal.toString());
         } else
             Utils.setSharedPreference(getContext(), Utils.jsonEncuestaFinal.toString());
-        //Utils.jsonEncuesta = new JSONObject();
+        //Utils.jsonEncuesta = new JSONObject();*/
 
         Constants.fragmentEstudioSE= null;
         Constants.fragmentEstudioSEAlimentacion= null;

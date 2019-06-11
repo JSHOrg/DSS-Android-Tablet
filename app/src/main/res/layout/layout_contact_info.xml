@@ -36,6 +36,7 @@
                     android:background="@drawable/rounded_corner_green"
                     android:gravity="center"
                     android:text="SM"
+                    android:textColor="@color/colorAccent"
                     android:textSize="@dimen/text_sub_title" />
             </LinearLayout>
 

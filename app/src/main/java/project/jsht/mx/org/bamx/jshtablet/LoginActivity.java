@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity  {
     private TextInputEditText  mEmailView;
     private TextInputEditText  mPasswordView;
     private View mProgressView;
-    private View mLoginFormView;
+    //private View mLoginFormView;
     private TextInputLayout emailInput, passwordInput;
 
     @Override
@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity  {
             }
         });
 
-        mLoginFormView = findViewById(R.id.login_form);
+        //mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
 
